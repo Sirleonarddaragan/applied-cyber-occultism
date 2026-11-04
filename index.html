@@ -373,13 +373,14 @@
 
     <nav class="nav-tabs">
       <a class="nav-tab" href="sigil.html">F1: SIGIL COMPILER</a>
-      <a class="nav-tab" href="servitor.html">F2: SERVIDOR MANIFEST</a>
+      <a class="nav-tab" href="servitor.html">F2: SERVITOR MANIFEST</a>
       <a class="nav-tab" href="tarot.html">F3: TAROT HEAP DUMP</a>
       <a class="nav-tab" href="vagal.html">F4: 0.1Hz VAGAL PACER</a>
       <a class="nav-tab active" href="index.html">F5: MASTER SUITE</a>
     </nav>
 
     <div class="external-links">
+      <button onclick="openCirModal()" style="background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #f87171; font-weight: 700; padding: 0.25rem 0.55rem; font-size: 0.72rem; border-radius: 3px; cursor: pointer; display: flex; align-items: center; gap: 4px;"><span>🚨</span> CIR ROLLBACK</button>
       <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener">📖 Amazon Field Manual</a>
       <a href="https://ko-fi.com/sirleonarddaragan" target="_blank" rel="noopener">⚡ Sponsor Compute</a>
       <a href="https://sirleonarddaragan.substack.com" target="_blank" rel="noopener">📡 Field Dispatches</a>
@@ -436,7 +437,7 @@
           OUTPUT: DAEMON.YAML / SYSTEMD.SERVICE<br>
           HALT: SIGTERM & IMMEDIATE SIGKILL
         </div>
-        <a href="servitor.html" class="btn-launch">LAUNCH SERVIDOR.EXE [F2]</a>
+        <a href="servitor.html" class="btn-launch">LAUNCH SERVITOR.EXE [F2]</a>
       </div>
 
       <!-- Module 3: Tarot Heap Dump -->
@@ -518,6 +519,86 @@
         </div>
       </div>
     </section>
+  
+    <!-- Field Manual Companion Matrix -->
+    <section class="reference-panel" style="margin-top: 2rem;">
+      <div class="ref-header">
+        <span style="color: var(--accent-cyan); font-weight: 700; font-size: 0.95rem;">
+          FIELD MANUAL COMPANION // CHAPTER & EXERCISE RUNBOOK MATRIX
+        </span>
+        <span style="font-size: 0.75rem; color: var(--text-dim);">DIRECT PRINT & EBOOK CROSS-REFERENCE</span>
+      </div>
+
+      <p style="font-size: 0.82rem; color: var(--text-dim); margin-top: 0.75rem; line-height: 1.5;">
+        Every exercise in <em>Applied Cyber-Occultism</em> (6×9 Print Edition, 190 pp) has a dedicated runtime subsystem or protocol in this terminal. Use this matrix to launch the exact runtime called for in your reading:
+      </p>
+
+      <div style="overflow-x: auto; margin-top: 1rem;">
+        <table style="width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.78rem; text-align: left; min-width: 680px;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-glow); color: var(--text-amber); background: rgba(0, 0, 0, 0.3);">
+              <th style="padding: 10px 12px;">MODULE / CHAPTER</th>
+              <th style="padding: 10px 12px;">PRINT PP.</th>
+              <th style="padding: 10px 12px;">CANONICAL EXERCISE</th>
+              <th style="padding: 10px 12px;">TERMINAL RUNTIME SUBSYSTEM</th>
+              <th style="padding: 10px 12px; text-align: right;">ACTION</th>
+            </tr>
+          </thead>
+          <tbody style="color: var(--text-main);">
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+              <td style="padding: 10px 12px; font-weight: 600; color: #fff;">MODULE 0.5: FORMATTING</td>
+              <td style="padding: 10px 12px; color: var(--text-dim);">pp. 15–26</td>
+              <td style="padding: 10px 12px;">Ex. 1: Baseline Drive Wipe (CIR)</td>
+              <td style="padding: 10px 12px; color: #f87171;">Cognitive Interruption Routine</td>
+              <td style="padding: 10px 12px; text-align: right;"><button onclick="openCirModal()" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #fca5a5; padding: 3px 8px; border-radius: 3px; font-size: 0.72rem; cursor: pointer; font-family: inherit;">EXECUTE CIR</button></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06); background: rgba(255, 255, 255, 0.02);">
+              <td style="padding: 10px 12px; font-weight: 600; color: #fff;">MODULE 1 & 1.5: GNOSIS & WETWARE</td>
+              <td style="padding: 10px 12px; color: var(--text-dim);">pp. 27–58</td>
+              <td style="padding: 10px 12px;">Ex. 2 & 3: Thalamic Overload / Decoupling</td>
+              <td style="padding: 10px 12px; color: var(--accent-cyan);">0.1 Hz Resonant Vagal Pacer [F4]</td>
+              <td style="padding: 10px 12px; text-align: right;"><a href="vagal.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">LAUNCH F4 →</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+              <td style="padding: 10px 12px; font-weight: 600; color: #fff;">MODULE 2: ZERO-TRUST WARDS</td>
+              <td style="padding: 10px 12px; color: var(--text-dim);">pp. 59–76</td>
+              <td style="padding: 10px 12px;">Ex. 4: 4-Quarter Network Ward Firewall</td>
+              <td style="padding: 10px 12px; color: var(--text-amber);">Perimeter Port Defense (SSH/HTTP/DNS/NTP)</td>
+              <td style="padding: 10px 12px; text-align: right;"><span style="color: var(--text-dim);">RUNBOOK SEC. 2</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06); background: rgba(255, 255, 255, 0.02);">
+              <td style="padding: 10px 12px; font-weight: 600; color: #fff;">MODULE 3: SIGIL MECHANICS</td>
+              <td style="padding: 10px 12px; color: var(--text-dim);">pp. 77–96</td>
+              <td style="padding: 10px 12px;">Ex. 5: 5-Stage AOS Binary Compilation</td>
+              <td style="padding: 10px 12px; color: var(--accent-cyan);">SIGIL.EXE Compiler & Retinal Strobe [F1]</td>
+              <td style="padding: 10px 12px; text-align: right;"><a href="sigil.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">LAUNCH F1 →</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+              <td style="padding: 10px 12px; font-weight: 600; color: #fff;">MODULE 4: DAEMONS (SERVITORS)</td>
+              <td style="padding: 10px 12px; color: var(--text-dim);">pp. 97–116</td>
+              <td style="padding: 10px 12px;">Ex. 6: Production Daemon Manifest & TTL</td>
+              <td style="padding: 10px 12px; color: var(--accent-cyan);">SERVITOR.EXE Manifest Generator [F2]</td>
+              <td style="padding: 10px 12px; text-align: right;"><a href="servitor.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">LAUNCH F2 →</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06); background: rgba(255, 255, 255, 0.02);">
+              <td style="padding: 10px 12px; font-weight: 600; color: #fff;">MODULE 5: STOCHASTIC RESONANCE</td>
+              <td style="padding: 10px 12px; color: var(--text-dim);">pp. 117–136</td>
+              <td style="padding: 10px 12px;">Ex. 7: 78-Register Tarot Core Dump</td>
+              <td style="padding: 10px 12px; color: var(--accent-cyan);">TAROT_HEAP.DUMP Engine [F3]</td>
+              <td style="padding: 10px 12px; text-align: right;"><a href="tarot.html" style="color: var(--accent-cyan); text-decoration: none; font-weight: 600;">LAUNCH F3 →</a></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+              <td style="padding: 10px 12px; font-weight: 600; color: #fff;">MODULE 6: KERNEL PANICS</td>
+              <td style="padding: 10px 12px; color: var(--text-dim);">pp. 137–152</td>
+              <td style="padding: 10px 12px;">Ex. 8: Trigeminal Dive Reflex Rollback</td>
+              <td style="padding: 10px 12px; color: #f87171;">Emergency CIR Disaster Recovery</td>
+              <td style="padding: 10px 12px; text-align: right;"><button onclick="openCirModal()" style="background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #fca5a5; padding: 3px 8px; border-radius: 3px; font-size: 0.72rem; cursor: pointer; font-family: inherit;">EXECUTE CIR</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
@@ -529,6 +610,73 @@
     </div>
     <div>System Status: <span style="color: var(--green-ok);">ALL SYSTEMS NOMINAL (4 MODULES ACTIVE)</span></div>
   </footer>
+
+
+  <!-- CIR: Cognitive Interruption Routine (Emergency Kernel Rollback) Modal -->
+  <div id="cirModal" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(3, 5, 8, 0.92); backdrop-filter: blur(10px); z-index: 10005; display: none; align-items: center; justify-content: center;">
+    <div style="background: #0b0f17; border: 2px solid #ef4444; max-width: 620px; width: 92%; padding: 24px; border-radius: 8px; box-shadow: 0 0 50px rgba(239, 68, 68, 0.35); display: flex; flex-direction: column; gap: 16px; font-family: var(--font-mono);">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(239, 68, 68, 0.4); padding-bottom: 12px;">
+        <div style="font-weight: 700; color: #f87171; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+          <span>🚨</span> CIR PROTOCOL // EMERGENCY KERNEL ROLLBACK (MODULE 0.5 & 6)
+        </div>
+        <button onclick="closeCirModal()" style="background: transparent; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+      <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+        <strong>OPERATOR NOTICE:</strong> If you are experiencing cognitive feedback loops, autonomic tachycardia, ritual hyper-fixation, or intrusive intrusive ideation, execute the following three biological hardware interrupts immediately:
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 10px 14px; border-radius: 4px;">
+          <div style="font-weight: 700; color: #fca5a5; font-size: 0.85rem;">1. TRIGEMINAL MAMMALIAN DIVE REFLEX</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 4px;">Submerge face in 10°C cold water or apply ice packs to forehead/eyes for 20 seconds. This mechanically triggers the ophthalmic branch of cranial nerve V, forcing immediate parasympathetic bradycardia.</div>
+        </div>
+
+        <div style="background: rgba(56, 189, 248, 0.08); border-left: 3px solid #38bdf8; padding: 10px 14px; border-radius: 4px;">
+          <div style="font-weight: 700; color: #7dd3fc; font-size: 0.85rem;">2. DUAL-INHALATION PHYSIOLOGICAL SIGH</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 4px;">Inhale sharply twice through the nose (full lung inflation + top-off sip), followed by a slow, unforced 8-second oral exhalation. Repeat 3 times to collapse alveolar CO₂ stagnation.</div>
+        </div>
+
+        <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #f59e0b; padding: 10px 14px; border-radius: 4px;">
+          <div style="font-weight: 700; color: #fcd34d; font-size: 0.85rem;">3. 5-4-3-2-1 PERIPHERAL GROUNDING INTERRUPT</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 4px;">Name aloud: 5 physical objects you see, 4 tactile surfaces you feel, 3 distinct sounds, 2 scents, and 1 physical action. This forcefully evicts attention from Ring 3 narrative loop space back into sensory hardware.</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 12px;">
+        <span style="font-size: 0.72rem; color: #64748b;">CANONICAL ROLLBACK STANDARD · CODEX PRESS</span>
+        <button onclick="closeCirModal()" style="background: #ef4444; color: #fff; border: none; padding: 8px 18px; border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 0.8rem;">
+          ACKNOWLEDGE & DISENGAGE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Global Keyboard Navigation (F1-F5, ESC)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F1') { e.preventDefault(); window.location.href = 'sigil.html'; }
+      else if (e.key === 'F2') { e.preventDefault(); window.location.href = 'servitor.html'; }
+      else if (e.key === 'F3') { e.preventDefault(); window.location.href = 'tarot.html'; }
+      else if (e.key === 'F4') { e.preventDefault(); window.location.href = 'vagal.html'; }
+      else if (e.key === 'F5' && !e.ctrlKey) { e.preventDefault(); window.location.href = 'index.html'; }
+      else if (e.key === 'Escape') {
+        const cir = document.getElementById('cirModal');
+        if (cir) cir.style.display = 'none';
+        const exp = document.getElementById('exportModal');
+        if (exp) exp.style.display = 'none';
+      }
+    });
+
+    function openCirModal() {
+      const m = document.getElementById('cirModal');
+      if (m) m.style.display = 'flex';
+    }
+    function closeCirModal() {
+      const m = document.getElementById('cirModal');
+      if (m) m.style.display = 'none';
+    }
+  </script>
 
 </body>
 </html>

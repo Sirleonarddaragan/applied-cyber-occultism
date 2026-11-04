@@ -563,7 +563,7 @@
       </p>
       <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid var(--text-amber); padding: 12px;">
         <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">APPLIED CYBER-OCCULTISM (VOL. 1)</div>
-        <div style="font-size: 0.75rem; color: var(--text-dim);">By Sir Leonard Daragan · 136 Pages · Codex Press</div>
+        <div style="font-size: 0.75rem; color: var(--text-dim);">By Sir Leonard Daragan · 190 Pages · Codex Press</div>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
         <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener" class="btn-action" style="border-color: var(--text-amber); color: var(--text-amber);">
@@ -588,13 +588,14 @@
 
     <nav class="nav-tabs">
       <a class="nav-tab active" href="sigil.html">F1: SIGIL COMPILER</a>
-      <a class="nav-tab" href="servitor.html">F2: SERVIDOR MANIFEST</a>
+      <a class="nav-tab" href="servitor.html">F2: SERVITOR MANIFEST</a>
       <a class="nav-tab" href="tarot.html">F3: TAROT HEAP DUMP</a>
       <a class="nav-tab" href="vagal.html">F4: 0.1Hz VAGAL PACER</a>
       <a class="nav-tab" href="index.html">F5: MASTER SUITE</a>
     </nav>
 
     <div class="external-links">
+      <button onclick="openCirModal()" style="background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444; color: #f87171; font-weight: 700; padding: 0.25rem 0.55rem; font-size: 0.72rem; border-radius: 3px; cursor: pointer; display: flex; align-items: center; gap: 4px;"><span>🚨</span> CIR ROLLBACK</button>
       <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener">📖 Physical Manual</a>
       <a href="https://ko-fi.com/sirleonarddaragan" target="_blank" rel="noopener">⚡ Sponsor Compute</a>
       <a href="https://sirleonarddaragan.substack.com" target="_blank" rel="noopener">📡 Field Dispatches</a>
@@ -683,6 +684,9 @@
 
       <!-- Action Controls -->
       <div class="action-bar">
+        <button class="btn-action" style="border-color: #ef4444; color: #f87171; background: rgba(239, 68, 68, 0.1);" onclick="shredIntentAndPurge()">
+          <span>💥</span> PURGE RAM BUFFER & SHRED INTENT (AOS AMNESIA)
+        </button>
         <button class="btn-action btn-gnosis" onclick="triggerGnosisFlash()">
           <span>⚡</span> TRIGGER GNOSIS RETINAL FLASH (PRE-CONSCIOUS INJECTION)
         </button>
@@ -1236,6 +1240,98 @@ MEMORY CONTAINER: BOUNDED CIRCULAR ENCLOSURE (RING 0 RUNTIME)`;
       document.getElementById('intentInput').addEventListener('input', compileIntent);
       compileIntent();
     });
+  
+    function shredIntentAndPurge() {
+      const input = document.getElementById('intentInput');
+      const svg = document.getElementById('sigilSvgContainer');
+      const ascii = document.getElementById('asciiTelemetry');
+      if (input) input.value = '';
+      if (svg) {
+        svg.innerHTML = `
+          <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:360px; color:#ef4444; font-family:monospace; text-align:center; padding:20px;">
+            <div style="font-size:2.2rem; margin-bottom:12px;">⚡ [0x00_CACHE_FLUSHED]</div>
+            <div style="font-size:1.15rem; color:#fff; font-weight:700; margin-bottom:10px;">CONSCIOUS INTENT PURGED FROM RAM</div>
+            <p style="font-size:0.85rem; color:#cbd5e1; max-width:440px; line-height:1.6; margin:0 auto;">
+              Austin Osman Spare Canon: The discursive narrative ego (Ring 3) is now permanently severed from this execution thread.
+            </p>
+            <div style="margin-top:18px; padding:12px 18px; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:4px; font-size:0.82rem; color:#fca5a5;">
+              <strong>IMMEDIATE MANDATE:</strong> Engage an unrelated physical or cognitive task immediately. Do not inspect, analyze, or verify this operation again.
+            </div>
+          </div>
+        `;
+      }
+      if (ascii) {
+        ascii.textContent = "// RAM BUFFER SCRUBBED: 0x00000000\n// THREAD DETACHED: pid=fork(); if (pid > 0) exit(0);\n// STATUS: EXECUTION PERMANENTLY TRANSFERRED TO SUBCORTICAL FIRMWARE.";
+      }
+      showHudToast("INTENT BUFFER ZEROED [0x00]");
+    }
+</script>
+
+  <!-- CIR: Cognitive Interruption Routine (Emergency Kernel Rollback) Modal -->
+  <div id="cirModal" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(3, 5, 8, 0.92); backdrop-filter: blur(10px); z-index: 10005; display: none; align-items: center; justify-content: center;">
+    <div style="background: #0b0f17; border: 2px solid #ef4444; max-width: 620px; width: 92%; padding: 24px; border-radius: 8px; box-shadow: 0 0 50px rgba(239, 68, 68, 0.35); display: flex; flex-direction: column; gap: 16px; font-family: var(--font-mono);">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(239, 68, 68, 0.4); padding-bottom: 12px;">
+        <div style="font-weight: 700; color: #f87171; font-size: 1rem; display: flex; align-items: center; gap: 8px;">
+          <span>🚨</span> CIR PROTOCOL // EMERGENCY KERNEL ROLLBACK (MODULE 0.5 & 6)
+        </div>
+        <button onclick="closeCirModal()" style="background: transparent; border: none; color: #94a3b8; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      </div>
+      <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6; margin: 0;">
+        <strong>OPERATOR NOTICE:</strong> If you are experiencing cognitive feedback loops, autonomic tachycardia, ritual hyper-fixation, or intrusive intrusive ideation, execute the following three biological hardware interrupts immediately:
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 10px 14px; border-radius: 4px;">
+          <div style="font-weight: 700; color: #fca5a5; font-size: 0.85rem;">1. TRIGEMINAL MAMMALIAN DIVE REFLEX</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 4px;">Submerge face in 10°C cold water or apply ice packs to forehead/eyes for 20 seconds. This mechanically triggers the ophthalmic branch of cranial nerve V, forcing immediate parasympathetic bradycardia.</div>
+        </div>
+
+        <div style="background: rgba(56, 189, 248, 0.08); border-left: 3px solid #38bdf8; padding: 10px 14px; border-radius: 4px;">
+          <div style="font-weight: 700; color: #7dd3fc; font-size: 0.85rem;">2. DUAL-INHALATION PHYSIOLOGICAL SIGH</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 4px;">Inhale sharply twice through the nose (full lung inflation + top-off sip), followed by a slow, unforced 8-second oral exhalation. Repeat 3 times to collapse alveolar CO₂ stagnation.</div>
+        </div>
+
+        <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #f59e0b; padding: 10px 14px; border-radius: 4px;">
+          <div style="font-weight: 700; color: #fcd34d; font-size: 0.85rem;">3. 5-4-3-2-1 PERIPHERAL GROUNDING INTERRUPT</div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; margin-top: 4px;">Name aloud: 5 physical objects you see, 4 tactile surfaces you feel, 3 distinct sounds, 2 scents, and 1 physical action. This forcefully evicts attention from Ring 3 narrative loop space back into sensory hardware.</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 12px;">
+        <span style="font-size: 0.72rem; color: #64748b;">CANONICAL ROLLBACK STANDARD · CODEX PRESS</span>
+        <button onclick="closeCirModal()" style="background: #ef4444; color: #fff; border: none; padding: 8px 18px; border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 0.8rem;">
+          ACKNOWLEDGE & DISENGAGE
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Global Keyboard Navigation (F1-F5, ESC)
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F1') { e.preventDefault(); window.location.href = 'sigil.html'; }
+      else if (e.key === 'F2') { e.preventDefault(); window.location.href = 'servitor.html'; }
+      else if (e.key === 'F3') { e.preventDefault(); window.location.href = 'tarot.html'; }
+      else if (e.key === 'F4') { e.preventDefault(); window.location.href = 'vagal.html'; }
+      else if (e.key === 'F5' && !e.ctrlKey) { e.preventDefault(); window.location.href = 'index.html'; }
+      else if (e.key === 'Escape') {
+        const cir = document.getElementById('cirModal');
+        if (cir) cir.style.display = 'none';
+        const exp = document.getElementById('exportModal');
+        if (exp) exp.style.display = 'none';
+      }
+    });
+
+    function openCirModal() {
+      const m = document.getElementById('cirModal');
+      if (m) m.style.display = 'flex';
+    }
+    function closeCirModal() {
+      const m = document.getElementById('cirModal');
+      if (m) m.style.display = 'none';
+    }
   </script>
+
 </body>
 </html>
