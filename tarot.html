@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TAROT HEAP DUMP // APPLIED CYBER-OCCULTISM</title>
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="TAROT HEAP DUMP // APPLIED CYBER-OCCULTISM">
+  <meta property="og:description" content="78-Element Memory Heap Core Dump & Stochastic Resonance Engine. Interrogate subconscious register states via Kramers rate bistable potential dithering.">
+  <meta property="og:url" content="https://sirleonarddaragan.github.io/applied-cyber-occultism/tarot.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#07090e">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&display=swap');
+
+    :root {
+      --bg-void: #07090e;
+      --bg-panel: #0d1117;
+      --bg-card: #161b22;
+      --border-dim: #21262d;
+      --border-glow: #06b6d4;
+      --text-amber: #f59e0b;
+      --text-cyan: #38bdf8;
+      --text-dim: #8b949e;
+      --text-main: #e6edf3;
+      --red-alert: #f43f5e;
+      --green-ok: #10b981;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    /* Subtle CRT Scanline overlay */
+    body::before {
+      content: " ";
+      position: fixed;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+      background-size: 100% 3px;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.25;
+    }
+
+    /* Top Navigation HUD */
+    header {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-dim);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      color: var(--text-amber);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+    .brand-sub {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      border-left: 1px solid var(--border-dim);
+      padding-left: 12px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-tab {
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-dim);
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-tab:hover, .nav-tab.active {
+      color: var(--text-cyan);
+      border-color: var(--border-glow);
+      background: rgba(6, 182, 212, 0.1);
+      box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+    }
+
+    .external-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+    }
+    .external-links a {
+      color: var(--text-amber);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .external-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 6px var(--text-amber);
+    }
+
+    /* Main Container Grid */
+    main {
+      flex: 1;
+      padding: 24px;
+      max-width: 1550px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 10px;
+    }
+    .panel-title {
+      font-size: 0.9rem;
+      color: var(--text-amber);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--text-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      border-radius: 3px;
+    }
+
+    /* Form & Input */
+    .query-bar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      background: var(--bg-void);
+      border: 1px solid var(--border-dim);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      padding: 12px 14px;
+      border-radius: 4px;
+      outline: none;
+    }
+    input[type="text"]:focus {
+      border-color: var(--border-glow);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.25);
+    }
+
+    .preset-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .preset-label {
+      color: var(--text-dim);
+    }
+    .btn-preset {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      color: var(--text-dim);
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      transition: all 0.2s ease;
+    }
+    .btn-preset:hover {
+      color: var(--text-amber);
+      border-color: var(--text-amber);
+    }
+
+    /* Physics & Dithering Controls */
+    .physics-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1.8fr;
+      gap: 20px;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 16px;
+    }
+    @media (max-width: 900px) {
+      .physics-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .dither-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .range-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .range-wrap input[type="range"] {
+      flex: 1;
+    }
+    .range-val {
+      color: var(--text-amber);
+      font-weight: 700;
+      width: 60px;
+      text-align: right;
+    }
+
+    /* Double-Well SVG Canvas */
+    #bistableSvg {
+      width: 100%;
+      height: 120px;
+      background: #040608;
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+    }
+
+    /* 3-Register Hardware Stack */
+    .register-stack {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 960px) {
+      .register-stack {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .register-card {
+      background: #05080c;
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      transition: all 0.25s ease;
+    }
+    .register-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(6, 182, 212, 0.25);
+    }
+    .register-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--border-dim);
+    }
+    .register-card.past::before { background: #8b949e; }
+    .register-card.present::before { background: var(--text-amber); }
+    .register-card.future::before { background: var(--text-cyan); }
+
+    .reg-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
+    }
+    .reg-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .reg-code {
+      font-size: 0.75rem;
+      color: var(--text-cyan);
+      background: rgba(6, 182, 212, 0.1);
+      padding: 4px 8px;
+      border-radius: 3px;
+      width: fit-content;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .reg-bus {
+      font-size: 0.72rem;
+      color: var(--text-amber);
+    }
+    .reg-desc {
+      font-size: 0.82rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      border-top: 1px solid var(--border-dim);
+      padding-top: 10px;
+    }
+
+    /* Actions */
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-action {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 10px 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .btn-action:hover {
+      border-color: var(--border-glow);
+      color: var(--text-cyan);
+      background: rgba(6, 182, 212, 0.08);
+    }
+    .btn-dump {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: var(--text-amber);
+      color: var(--text-amber);
+      padding: 12px 24px;
+      font-size: 0.9rem;
+    }
+    .btn-dump:hover {
+      background: var(--text-amber);
+      color: #000;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+    }
+
+    /* ASCII Telemetry Drawer */
+    .ascii-drawer {
+      background: #040608;
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 14px;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      overflow-x: auto;
+      max-height: 220px;
+    }
+
+    /* Toast */
+    #hudToast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0d1117;
+      border: 1px solid var(--border-glow);
+      color: var(--text-cyan);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 10px 18px;
+      border-radius: 4px;
+      box-shadow: 0 0 18px rgba(6, 182, 212, 0.4);
+      z-index: 10001;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      transform: translateY(10px);
+    }
+    #hudToast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Modal */
+    #exportModal {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(3, 5, 8, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 10002;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: var(--bg-panel);
+      border: 1px solid var(--text-amber);
+      max-width: 560px;
+      width: 90%;
+      padding: 24px;
+      border-radius: 6px;
+      box-shadow: 0 0 40px rgba(245, 158, 11, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    footer {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border-dim);
+      padding: 16px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .book-callout {
+      color: var(--text-amber);
+    }
+    .book-callout a {
+      color: var(--text-cyan);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Modal -->
+  <div id="exportModal">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-dim); padding-bottom: 8px;">
+        <span style="color: var(--text-amber); font-weight: 700; font-size: 0.95rem;">⚡ [!] MEMORY CORE DUMP CAPTURED</span>
+        <button onclick="closeModal()" style="background: none; border: none; color: var(--text-dim); font-size: 1.3rem; cursor: pointer;">&times;</button>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
+        You have captured a raw 78-element memory snapshot. To interpret complex multi-register interrupt cascades, resolve memory leaks, and execute the <strong>Bistable Potential Divination Protocols</strong>, consult:
+      </p>
+      <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid var(--text-amber); padding: 12px;">
+        <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">APPLIED CYBER-OCCULTISM (VOL. 1)</div>
+        <div style="font-size: 0.75rem; color: var(--text-dim);">Module 5: Stochastic Resonance & Kramers Rate Divination (Page 98)</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener" class="btn-action" style="border-color: var(--text-amber); color: var(--text-amber); text-decoration: none; justify-content: center;">
+          📖 ORDER MANUAL ON AMAZON
+        </a>
+        <a href="https://sirleonarddaragan.substack.com" target="_blank" rel="noopener" class="btn-action" style="border-color: var(--border-glow); color: var(--text-cyan); text-decoration: none; justify-content: center;">
+          📡 SUBSTACK DISPATCHES
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="hudToast">⚡ TELEMETRY BUFFER COPIED</div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">🔮 TAROT_HEAP.DUMP // DIAGNOSTICS</div>
+      <div class="brand-sub">78-Element Memory Heap Stochastic Snapshot · Vol 1</div>
+    </div>
+
+    <nav class="nav-tabs">
+      <a class="nav-tab" href="sigil.html">F1: SIGIL COMPILER</a>
+      <a class="nav-tab" href="servitor.html">F2: SERVIDOR MANIFEST</a>
+      <a class="nav-tab active" href="tarot.html">F3: TAROT HEAP DUMP</a>
+      <a class="nav-tab" href="vagal.html">F4: 0.1Hz VAGAL PACER</a>
+      <a class="nav-tab" href="index.html">F5: MASTER SUITE</a>
+    </nav>
+
+    <div class="external-links">
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank">📖 Physical Manual</a>
+      <a href="https://ko-fi.com/sirleonarddaragan" target="_blank">⚡ Sponsor Compute</a>
+      <a href="https://sirleonarddaragan.substack.com" target="_blank">📡 Field Dispatches</a>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>HEAP SNAPSHOT INTERROGATION</span>
+          <span class="badge">GCORE KERNEL DUMP</span>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-dim);" id="snapshotHash">HASH: 0x00000000</div>
+      </div>
+
+      <div class="query-bar">
+        <input type="text" id="queryInput" placeholder="Enter diagnostic query string..." value="SYSTEM SECURITY PERIMETER INTEGRITY EVALUATION">
+        <button class="btn-action btn-dump" onclick="executeHeapDump()">
+          <span>⚡</span> EXECUTE CORE DUMP (GCORE PID 0x00)
+        </button>
+      </div>
+
+      <div class="preset-bar">
+        <span class="preset-label">CANONICAL QUERIES:</span>
+        <button class="btn-preset" onclick="loadQuery(1)">--preset=01_SECURITY_PERIMETER</button>
+        <button class="btn-preset" onclick="loadQuery(2)">--preset=02_OPPORTUNITY_BIAS</button>
+        <button class="btn-preset" onclick="loadQuery(3)">--preset=03_SUBSTRATE_HEALTH</button>
+      </div>
+
+      <!-- Physics & Dithering Control -->
+      <div class="physics-grid">
+        <div class="dither-controls">
+          <div style="font-size: 0.75rem; color: var(--text-cyan); text-transform: uppercase;">
+            GAUSSIAN NOISE FLOOR DITHERING (σ / D)
+          </div>
+          <div class="range-wrap">
+            <input type="range" id="noiseSlider" min="0.05" max="1.00" step="0.01" value="0.25">
+            <div class="range-val" id="noiseVal">0.25 D</div>
+          </div>
+          <div style="font-size: 0.72rem; color: var(--text-dim); display: flex; justify-content: space-between;">
+            <span>Kramers Rate (r_K): <strong id="kramersRateVal" style="color: var(--text-cyan);">0.0828</strong></span>
+            <span>Resonance Status: <strong id="resonanceStatus" style="color: var(--green-ok);">OPTIMAL (D ≈ ΔV)</strong></span>
+          </div>
+        </div>
+
+        <div>
+          <svg id="bistableSvg" viewBox="0 0 450 120"></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-Register Hardware Stack -->
+    <section class="register-stack">
+      <!-- Call Stack (Past) -->
+      <div class="register-card past">
+        <div class="reg-tag">
+          <span>[CALL_STACK: PAST CONTEXT]</span>
+          <span id="pastId">MAJ_05</span>
+        </div>
+        <div class="reg-title" id="pastName">V: The Hierophant</div>
+        <div class="reg-code" id="pastCode">0x05_PROTOCOL_STD</div>
+        <div class="reg-bus" id="pastBus">RING 0 KERNEL BUS</div>
+        <div class="reg-desc" id="pastDesc">Consensus reality protocol standard; legacy cultural APIs, trusted certificate authorities, orthodoxy.</div>
+      </div>
+
+      <!-- Instruction Pointer (Present) -->
+      <div class="register-card present">
+        <div class="reg-tag">
+          <span style="color: var(--text-amber);">[INSTRUCTION_POINTER: PRESENT]</span>
+          <span id="presId">REG_WA_0x0B</span>
+        </div>
+        <div class="reg-title" id="presName">Page of Wands</div>
+        <div class="reg-code" id="presCode" style="color: var(--text-amber); border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">REG_WA_0x0B_PROBE</div>
+        <div class="reg-bus" id="presBus">KINETIC / THERMAL BUS</div>
+        <div class="reg-desc" id="presDesc">Diagnostic telemetry probe / incoming packet interrupt across Processing throughput, metabolic drive, kinetic execution.</div>
+      </div>
+
+      <!-- Interrupt Vector (Future) -->
+      <div class="register-card future">
+        <div class="reg-tag">
+          <span style="color: var(--text-cyan);">[INTERRUPT_VECTOR: FUTURE]</span>
+          <span id="futId">MAJ_10</span>
+        </div>
+        <div class="reg-title" id="futName">X: Wheel of Fortune</div>
+        <div class="reg-code" id="futCode">0x0A_GAUSSIAN_DITHER</div>
+        <div class="reg-bus" id="futBus">RING 0 KERNEL BUS</div>
+        <div class="reg-desc" id="futDesc">Stochastic dithering injected into deterministic state; macro-environmental probability shifts.</div>
+      </div>
+    </section>
+
+    <!-- Actions & ASCII Telemetry Drawer -->
+    <section class="panel">
+      <div class="action-bar">
+        <button class="btn-action" onclick="copyCoreDump()">📋 COPY CORE DUMP TO CLIPBOARD</button>
+        <button class="btn-action" onclick="downloadCoreDump()">💾 EXPORT CORE DUMP (.LOG)</button>
+        <button class="btn-action" onclick="shareToX()">🐦 SHARE TELEMETRY TO X</button>
+      </div>
+
+      <pre class="ascii-drawer" id="asciiLog">// CORE DUMP BUFFER INITIALIZED...</pre>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="book-callout">
+      <span>📖</span>
+      <span>Documented in <strong>Applied Cyber-Occultism</strong> (Module 5: Schematic 6, Page 98).</span>
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank">Collector's Edition Available on Amazon</a>
+    </div>
+    <div>Telemetry State: <span style="color: var(--green-ok);">SYNCHRONIZED (78 REGISTERS ALLOCATED)</span></div>
+  </footer>
+
+  <script>
+    // 22 Major Arcana Core Opcodes
+    const MAJOR_OPCODES = [
+      { id: "MAJ_00", name: "0: The Fool", code: "0x00_NULL_PTR", bus: "RING 0 KERNEL BUS", desc: "Initial execution state, unallocated memory block, raw potential without semantic constraint." },
+      { id: "MAJ_01", name: "I: The Magician", code: "0x01_EXEC_SYSCALL", bus: "RING 0 KERNEL BUS", desc: "Directed volitional instruction pointer hijacking; raw will imposing state transitions on local registers." },
+      { id: "MAJ_02", name: "II: The High Priestess", code: "0x02_READ_ONLY_MEM", bus: "RING 0 KERNEL BUS", desc: "Subsurface kernel ROM inspection; read-only intuitive telemetry buffered beneath conscious awareness." },
+      { id: "MAJ_03", name: "III: The Empress", code: "0x03_HEAP_ALLOC", bus: "RING 0 KERNEL BUS", desc: "Dynamic heap expansion; metabolic proliferation, generative creativity, somatic resource synthesis." },
+      { id: "MAJ_04", name: "IV: The Emperor", code: "0x04_CONTAINER_ENFORCE", bus: "RING 0 KERNEL BUS", desc: "Runtime perimeter enforcement; rigid memory containerization, privilege boundaries, structural discipline." },
+      { id: "MAJ_05", name: "V: The Hierophant", code: "0x05_PROTOCOL_STD", bus: "RING 0 KERNEL BUS", desc: "Consensus reality protocol standard; legacy cultural APIs, trusted certificate authorities, orthodoxy." },
+      { id: "MAJ_06", name: "VI: The Lovers", code: "0x06_THREAD_FORK", bus: "RING 0 KERNEL BUS", desc: "Bifurcated thread execution (fork()); dual-path optimization, ethical or operational choice point." },
+      { id: "MAJ_07", name: "VII: The Chariot", code: "0x07_DMA_BURST", bus: "RING 0 KERNEL BUS", desc: "Direct Memory Access burst; concentrated kinetic momentum, bypassing user-space latency to reach goal." },
+      { id: "MAJ_08", name: "VIII: Strength", code: "0x08_VAGAL_CLAMP", bus: "RING 0 KERNEL BUS", desc: "Parasympathetic vagal brake modulation; calm containment of autonomic subcortical surges without suppression." },
+      { id: "MAJ_09", name: "IX: The Hermit", code: "0x09_AIRGAP_CLEANROOM", bus: "RING 0 KERNEL BUS", desc: "Physical & acoustic air-gapping; single-user diagnostic cleanroom, isolation from external telemetry noise." },
+      { id: "MAJ_10", name: "X: Wheel of Fortune", code: "0x0A_GAUSSIAN_DITHER", bus: "RING 0 KERNEL BUS", desc: "Stochastic dithering injected into deterministic state; macro-environmental probability shifts." },
+      { id: "MAJ_11", name: "XI: Justice", code: "0x0B_PARITY_CHECK", bus: "RING 0 KERNEL BUS", desc: "Cryptographic checksum verification; algorithmic cause-and-effect, deterministic karmic parity enforcement." },
+      { id: "MAJ_12", name: "XII: The Hanged Man", code: "0x0C_THREAD_SUSPEND", bus: "RING 0 KERNEL BUS", desc: "Voluntary thread suspension; inversion of the instruction pipeline, paradigm shift through forced immobility." },
+      { id: "MAJ_13", name: "XIII: Death", code: "0x0D_SIGTERM_PURGE", bus: "RING 0 KERNEL BUS", desc: "Graceful process de-allocation; clean de-provisioning of obsolete background daemons and calcified habits." },
+      { id: "MAJ_14", name: "XIV: Temperance", code: "0x0E_CLOCK_SYNC", bus: "RING 0 KERNEL BUS", desc: "Phase-locked loop balance; dynamic harmonization of competing neuro-circuits, analog/digital calibration." },
+      { id: "MAJ_15", name: "XV: The Devil", code: "0x0F_CRYPTOJACK_LEAK", bus: "RING 0 KERNEL BUS", desc: "Unauthorized background memory leak; adversarial memetic addiction, compulsive loop stealing compute power." },
+      { id: "MAJ_16", name: "XVI: The Tower", code: "0x10_SIGKILL_COLLAPSE", bus: "RING 0 KERNEL BUS", desc: "Catastrophic uncatchable hardware interrupt (SIGKILL); collapse of invalid architecture, forced reboot." },
+      { id: "MAJ_17", name: "XVII: The Star", code: "0x11_BEACON_RESTORE", bus: "RING 0 KERNEL BUS", desc: "Telemetry beacon recovery; homeostatic re-centering after system crash, non-local synchronicity ping." },
+      { id: "MAJ_18", name: "XVIII: The Moon", code: "0x12_THALAMIC_LEAK", bus: "RING 0 KERNEL BUS", desc: "Thalamic sensory filter desynchronization; hallucinatory noise floor, shadow archetypes bleeding from cache." },
+      { id: "MAJ_19", name: "XIX: The Sun", code: "0x13_CEN_MAX_PERFUSE", bus: "RING 0 KERNEL BUS", desc: "Central Executive Network full metabolic perfusion; total clarity, DMN silenced, maximum objective output." },
+      { id: "MAJ_20", name: "XX: Judgement", code: "0x14_CORE_DUMP_RCA", bus: "RING 0 KERNEL BUS", desc: "Complete heap core dump analysis; Root Cause Analysis (RCA), awakening to macro-architectural design." },
+      { id: "MAJ_21", name: "XXI: The World", code: "0x15_HYPERVISOR_ENV", bus: "RING 0 KERNEL BUS", desc: "Closed hypervisor envelope; completion of operational campaign, harmonious equilibrium across all privilege rings." }
+    ];
+
+    const SUITES = {
+      "SWORDS": { bus: "LOGIC / VECTOR BUS", domain: "Mental processing, discursive conflict, cryptographic algorithms" },
+      "WANDS": { bus: "KINETIC / THERMAL BUS", domain: "Processing throughput, metabolic drive, kinetic execution" },
+      "CUPS": { bus: "AFFECTIVE / HYDRO-VASCULAR BUS", domain: "Neuro-endocrine cascades, interoceptive gut signaling" },
+      "PENTACLES": { bus: "SUBSTRATE / PERSISTENT STORAGE", domain: "Physical chassis, thermodynamic wear, capital assets" }
+    };
+
+    const RANKS = [
+      ["Ace", "0x01_PRIMITIVE", "Raw uninitialized signal burst"],
+      ["Two", "0x02_POLARITY", "Bistable state oscillation / interface latency"],
+      ["Three", "0x03_INTEGRATION", "Triangular routing / initial packet synthesis"],
+      ["Four", "0x04_STABILIZATION", "Buffered queue / static caching"],
+      ["Five", "0x05_CONTENTION", "Bus contention / packet collision"],
+      ["Six", "0x06_OPTIMIZATION", "Throughput recovery / graceful routing"],
+      ["Seven", "0x07_VOLATILITY", "Uncertain state / edge hazard / asynchronous drift"],
+      ["Eight", "0x08_VELOCITY", "Rapid clock cycling / data stream serialization"],
+      ["Nine", "0x09_SATURATION", "Near-maximum buffer capacity / threshold stress"],
+      ["Ten", "0x0A_OVERFLOW", "Buffer overflow / cycle rollover / state completion"],
+      ["Page", "0x0B_PROBE", "Diagnostic telemetry probe / incoming packet interrupt"],
+      ["Knight", "0x0C_VECTOR", "Directed execution vector / active compute surge"],
+      ["Queen", "0x0D_GATEWAY", "Receptive I/O controller / bus governance"],
+      ["King", "0x0E_CONTROLLER", "Master bus controller / sovereign resource allocation"]
+    ];
+
+    const PRESETS = {
+      1: "SYSTEM SECURITY PERIMETER INTEGRITY EVALUATION",
+      2: "COMMERCIAL OPPORTUNITY INGRESS VECTOR",
+      3: "SOMATIC BIOLOGICAL SUBSTRATE DECAY AUDIT"
+    };
+
+    function loadQuery(id) {
+      document.getElementById('queryInput').value = PRESETS[id];
+      executeHeapDump();
+    }
+
+    async function sha256(str) {
+      const buf = new TextEncoder().encode(str);
+      const digest = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function buildFullDeck() {
+      const deck = [...MAJOR_OPCODES];
+      for (const sName in SUITES) {
+        const sData = SUITES[sName];
+        RANKS.forEach(r => {
+          deck.push({
+            id: `MIN_${sName.substring(0, 2)}_${r[1].substring(0, 4)}`,
+            name: `${r[0]} of ${sName.charAt(0) + sName.slice(1).toLowerCase()}`,
+            code: `REG_${sName.substring(0, 2)}_${r[1]}`,
+            bus: sData.bus,
+            desc: `${r[2]} across ${sData.domain}.`
+          });
+        });
+      }
+      return deck;
+    }
+
+    function calculateKramers(D) {
+      const a = 1.0;
+      const b = 1.0;
+      const deltaV = (a * a) / (4.0 * b); // 0.25
+      const dVal = D <= 0.001 ? 0.001 : D;
+      const rate = (a / (Math.sqrt(2) * Math.PI)) * Math.exp(-deltaV / dVal);
+      const isOptimal = Math.abs(dVal - deltaV) < 0.08;
+      return { deltaV, dVal, rate, isOptimal };
+    }
+
+    function renderBistableSvg(D) {
+      const svg = document.getElementById('bistableSvg');
+      const w = 450;
+      const h = 120;
+      const a = 1.0;
+      const b = 1.0;
+
+      // Draw potential curve V(x) = -a/2 * x^2 + b/4 * x^4
+      // x ranges from -1.8 to +1.8
+      let pathD = "";
+      for (let i = 0; i <= 100; i++) {
+        const x = -1.7 + (i / 100) * 3.4;
+        const v = -0.5 * a * x * x + 0.25 * b * Math.pow(x, 4);
+        // Map x: [-1.7, 1.7] -> [40, 410]
+        const px = 40 + ((x + 1.7) / 3.4) * (w - 80);
+        // Map v: [-0.25, 0.5] -> [85, 20]
+        const py = 75 - (v * 70);
+        if (i === 0) pathD += `M ${px.toFixed(1)} ${py.toFixed(1)}`;
+        else pathD += ` L ${px.toFixed(1)} ${py.toFixed(1)}`;
+      }
+
+      // Particle jumping with amplitude based on D
+      const dAmp = Math.min(D * 40, 35);
+      const pxWell = 135;
+      const pyWell = 92 - dAmp;
+
+      svg.innerHTML = `
+        <defs>
+          <linearGradient id="wellGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#07090e" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- Center barrier marker -->
+        <line x1="225" y1="20" x2="225" y2="105" stroke="#21262d" stroke-dasharray="2 3"/>
+        <text x="225" y="16" fill="#f59e0b" font-size="9" text-anchor="middle">BARRIER ΔV = 0.25</text>
+
+        <path d="${pathD}" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round"/>
+
+        <!-- Well labels -->
+        <text x="135" y="112" fill="#8b949e" font-size="9" text-anchor="middle">WELL 1: SUBCONSCIOUS</text>
+        <text x="315" y="112" fill="#8b949e" font-size="9" text-anchor="middle">WELL 2: CONSCIOUS PFC</text>
+
+        <!-- Stochastic particle -->
+        <circle cx="${pxWell}" cy="${pyWell}" r="5" fill="#f59e0b" stroke="#fff" stroke-width="1.5">
+          <animate attributeName="cy" values="${pyWell};${pyWell - 8};${pyWell}" dur="${(1.2 - D).toFixed(2)}s" repeatCount="indefinite"/>
+        </circle>
+      `;
+    }
+
+    async function executeHeapDump() {
+      const query = document.getElementById('queryInput').value.trim() || 'UNIVERSAL_DIAGNOSTIC';
+      const noise = parseFloat(document.getElementById('noiseSlider').value);
+
+      const kramers = calculateKramers(noise);
+      document.getElementById('kramersRateVal').textContent = kramers.rate.toFixed(4);
+      document.getElementById('resonanceStatus').textContent = kramers.isOptimal ? "OPTIMAL (D ≈ ΔV)" : (noise < 0.25 ? "SUB-THRESHOLD" : "OVER-DITHERED");
+      document.getElementById('resonanceStatus').style.color = kramers.isOptimal ? "var(--green-ok)" : "var(--text-amber)";
+
+      renderBistableSvg(noise);
+
+      // Deterministic PRNG seeded by query + timestamp + noise
+      const hashStr = await sha256(`${query}:${Date.now()}:${noise}`);
+      document.getElementById('snapshotHash').textContent = `HASH: 0x${hashStr.substring(0, 10).toUpperCase()}`;
+
+      const deck = buildFullDeck();
+      // Pseudo shuffle with seed
+      let seedInt = parseInt(hashStr.substring(0, 8), 16);
+      for (let i = deck.length - 1; i > 0; i--) {
+        seedInt = (seedInt * 9301 + 49297) % 233280;
+        const j = Math.floor((seedInt / 233280) * (i + 1));
+        const temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+      }
+
+      const past = deck[0];
+      const pres = deck[1];
+      const fut = deck[2];
+
+      // Update Cards
+      document.getElementById('pastId').textContent = past.id;
+      document.getElementById('pastName').textContent = past.name;
+      document.getElementById('pastCode').textContent = past.code;
+      document.getElementById('pastBus').textContent = past.bus;
+      document.getElementById('pastDesc').textContent = past.desc;
+
+      document.getElementById('presId').textContent = pres.id;
+      document.getElementById('presName').textContent = pres.name;
+      document.getElementById('presCode').textContent = pres.code;
+      document.getElementById('presBus').textContent = pres.bus;
+      document.getElementById('presDesc').textContent = pres.desc;
+
+      document.getElementById('futId').textContent = fut.id;
+      document.getElementById('futName').textContent = fut.name;
+      document.getElementById('futCode').textContent = fut.code;
+      document.getElementById('futBus').textContent = fut.bus;
+      document.getElementById('futDesc').textContent = fut.desc;
+
+      // Update ASCII Log
+      updateAsciiLog(query, hashStr, noise, kramers.rate, past, pres, fut);
+    }
+
+    function updateAsciiLog(query, hash, noise, rate, past, pres, fut) {
+      const log = `// ================================================================
+// APPLIED CYBER-OCCULTISM // TAROT_HEAP.DUMP CORE DUMP
+// MODULE 5: 78-ELEMENT MEMORY HEAP STOCHASTIC DIAGNOSTICS
+// SNAPSHOT HASH: 0x${hash.substring(0, 16).toUpperCase()} // NOISE FLOOR: ${noise.toFixed(2)} D
+// KRAMERS ESCAPE RATE: ${rate.toFixed(6)} // BISTABLE BARRIER ΔV: 0.2500
+// ================================================================
+
+[QUERY INTERROGATION]
+QUERY: "${query}"
+
+[REGISTER 1: CALL_STACK (PAST CONTEXT)]
+ID: ${past.id} // NAME: ${past.name}
+OPCODE: ${past.code}
+BUS: ${past.bus}
+DIAGNOSTIC: ${past.desc}
+
+[REGISTER 2: INSTRUCTION_POINTER (PRESENT EXECUTION STATE)]
+ID: ${pres.id} // NAME: ${pres.name}
+OPCODE: ${pres.code}
+BUS: ${pres.bus}
+DIAGNOSTIC: ${pres.desc}
+
+[REGISTER 3: INTERRUPT_VECTOR (PROBABILISTIC FUTURE TREND)]
+ID: ${fut.id} // NAME: ${fut.name}
+OPCODE: ${fut.code}
+BUS: ${fut.bus}
+DIAGNOSTIC: ${fut.desc}
+
+[HEAP STATUS: CAPTURED SUCCESSFUL]`;
+
+      document.getElementById('asciiLog').textContent = log;
+    }
+
+    function copyCoreDump() {
+      const text = document.getElementById('asciiLog').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("CORE DUMP BUFFER COPIED [0x00_SUCCESS]");
+      });
+    }
+
+    function downloadCoreDump() {
+      const text = document.getElementById('asciiLog').textContent;
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `CORE_DUMP_${Date.now()}.log`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("CORE DUMP EXPORTED (.LOG)");
+      setTimeout(openModal, 800);
+    }
+
+    function shareToX() {
+      const past = document.getElementById('pastName').textContent;
+      const pres = document.getElementById('presName').textContent;
+      const fut = document.getElementById('futName').textContent;
+      const tweetText = encodeURIComponent(`Captured 78-element memory heap dump via Stochastic Resonance Divination.\n\n[CALL_STACK]: ${past}\n[INSTRUCTION_PTR]: ${pres}\n[INTERRUPT_VECTOR]: ${fut}\n\nManual: APPLIED CYBER-OCCULTISM by Sir Leonard Daragan @SirLeonardDaragan\n\nhttps://sirleonarddaragan.github.io/applied-cyber-occultism/tarot.html`);
+      window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, '_blank');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('hudToast');
+      toast.textContent = `⚡ ${msg}`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    function openModal() { document.getElementById('exportModal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('exportModal').style.display = 'none'; }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('noiseSlider').addEventListener('input', (e) => {
+        document.getElementById('noiseVal').textContent = `${parseFloat(e.target.value).toFixed(2)} D`;
+        executeHeapDump();
+      });
+      executeHeapDump();
+    });
+  </script>
+</body>
+</html>

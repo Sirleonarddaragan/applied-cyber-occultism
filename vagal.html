@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0.1 Hz VAGAL LOCK PACER // APPLIED CYBER-OCCULTISM</title>
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="0.1 Hz VAGAL LOCK PACER // APPLIED CYBER-OCCULTISM">
+  <meta property="og:description" content="Resonant Frequency Breathing Pacer & Heart Rate Variability Coherence Engine. Phase-locks respiratory sinus arrhythmia and baroreflex waves at 0.1 Hz to establish the biological cleanroom.">
+  <meta property="og:url" content="https://sirleonarddaragan.github.io/applied-cyber-occultism/vagal.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#07090e">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&display=swap');
+
+    :root {
+      --bg-void: #07090e;
+      --bg-panel: #0d1117;
+      --bg-card: #161b22;
+      --border-dim: #21262d;
+      --border-glow: #06b6d4;
+      --text-amber: #f59e0b;
+      --text-cyan: #38bdf8;
+      --text-dim: #8b949e;
+      --text-main: #e6edf3;
+      --red-alert: #f43f5e;
+      --green-ok: #10b981;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    /* Subtle CRT Scanlines */
+    body::before {
+      content: " ";
+      position: fixed;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+      background-size: 100% 3px;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.25;
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-dim);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      color: var(--text-amber);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+    .brand-sub {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      border-left: 1px solid var(--border-dim);
+      padding-left: 12px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-tab {
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-dim);
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-tab:hover, .nav-tab.active {
+      color: var(--text-cyan);
+      border-color: var(--border-glow);
+      background: rgba(6, 182, 212, 0.1);
+      box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+    }
+
+    .external-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+    }
+    .external-links a {
+      color: var(--text-amber);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .external-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 6px var(--text-amber);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 1024px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 10px;
+    }
+    .panel-title {
+      font-size: 0.95rem;
+      color: var(--text-amber);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--text-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      border-radius: 3px;
+    }
+
+    /* Pacer Canvas */
+    .pacer-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      max-width: 500px;
+      margin: 0 auto;
+      background: #030508;
+      border: 1px solid var(--border-dim);
+      border-radius: 50%;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(6, 182, 212, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #pacerSvg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pacer-overlay-text {
+      position: absolute;
+      text-align: center;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .phase-indicator {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+    }
+    .phase-sub {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+    .cycle-countdown {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-amber);
+      margin-top: 4px;
+    }
+
+    /* Controls & Telemetry */
+    .control-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ratio-bar {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-ratio {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-dim);
+      color: var(--text-dim);
+      padding: 8px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .btn-ratio.active {
+      color: var(--text-cyan);
+      border-color: var(--border-glow);
+      background: rgba(6, 182, 212, 0.12);
+      font-weight: 700;
+    }
+
+    .telemetry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .telemetry-cell {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cell-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .cell-val {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-cyan);
+    }
+
+    /* Start / Stop Bar */
+    .pacer-actions {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+    }
+    .btn-action {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .btn-action:hover {
+      border-color: var(--border-glow);
+      color: var(--text-cyan);
+    }
+    .btn-start {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: var(--green-ok);
+      color: #6ee7b7;
+    }
+    .btn-start:hover {
+      background: var(--green-ok);
+      color: #000;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+    }
+    .btn-start.running {
+      background: rgba(244, 63, 94, 0.15);
+      border-color: var(--red-alert);
+      color: #fda4af;
+    }
+    .btn-start.running:hover {
+      background: var(--red-alert);
+      color: #000;
+      box-shadow: 0 0 20px rgba(244, 63, 94, 0.6);
+    }
+
+    /* Audio Toggle */
+    .audio-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      padding: 6px 10px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 3px;
+    }
+
+    footer {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border-dim);
+      padding: 16px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .book-callout {
+      color: var(--text-amber);
+    }
+    .book-callout a {
+      color: var(--text-cyan);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">🫁 GNOSIS_PULSE.EXE // 0.1 Hz PACER</div>
+      <div class="brand-sub">Vagal Lock Resonant Breathing Engine · Vol 1</div>
+    </div>
+
+    <nav class="nav-tabs">
+      <a class="nav-tab" href="sigil.html">F1: SIGIL COMPILER</a>
+      <a class="nav-tab" href="servitor.html">F2: SERVIDOR MANIFEST</a>
+      <a class="nav-tab" href="tarot.html">F3: TAROT HEAP DUMP</a>
+      <a class="nav-tab active" href="vagal.html">F4: 0.1Hz VAGAL PACER</a>
+      <a class="nav-tab" href="index.html">F5: MASTER SUITE</a>
+    </nav>
+
+    <div class="external-links">
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank">📖 Physical Manual</a>
+      <a href="https://ko-fi.com/sirleonarddaragan" target="_blank">⚡ Sponsor Compute</a>
+      <a href="https://sirleonarddaragan.substack.com" target="_blank">📡 Field Dispatches</a>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <main>
+    <!-- Left Column: Circular Vector HUD -->
+    <div class="pacer-wrapper">
+      <svg id="pacerSvg" viewBox="0 0 500 500"></svg>
+      <div class="pacer-overlay-text">
+        <div class="phase-indicator" id="phaseText">STANDBY</div>
+        <div class="phase-sub" id="phaseSub">PARASYMPATHETIC BRAKE READY</div>
+        <div class="cycle-countdown" id="cycleCount">--</div>
+      </div>
+    </div>
+
+    <!-- Right Column: Control & Physiological Telemetry Panel -->
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>AUTONOMIC TELEMETRY</span>
+          <span class="badge">RESONANT 0.1 Hz FREQUENCY</span>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-cyan);" id="sessionTime">ELAPSED: 00:00</div>
+      </div>
+
+      <!-- Ratio Controls -->
+      <div class="control-card">
+        <div style="font-size: 0.75rem; color: var(--text-cyan); text-transform: uppercase;">
+          RESPIRATORY PHASE CALIBRATION RATIO
+        </div>
+        <div class="ratio-bar">
+          <button class="btn-ratio active" onclick="setRatio('symmetric')">5.0s IN / 5.0s OUT (0.10 Hz)</button>
+          <button class="btn-ratio" onclick="setRatio('clamp')">4.0s IN / 6.0s OUT (VAGAL CLAMP)</button>
+        </div>
+
+        <div class="audio-toggle">
+          <span>SYNTHETIC RESONANCE CHIME (432 Hz SINE)</span>
+          <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+            <input type="checkbox" id="audioToggle" checked> ENABLE AUDIO PACING
+          </label>
+        </div>
+      </div>
+
+      <!-- Telemetry Readings -->
+      <div class="telemetry-grid">
+        <div class="telemetry-cell">
+          <span class="cell-label">COHERENCE INDEX</span>
+          <span class="cell-val" id="coherenceVal" style="color: var(--green-ok);">-- %</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="cell-label">CADENCE RATE</span>
+          <span class="cell-val" id="cadenceVal">6.0 BPM</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="cell-label">VAGAL BRAKE STATUS</span>
+          <span class="cell-val" id="vagalStatus" style="color: var(--text-amber); font-size: 0.95rem;">DISENGAGED</span>
+        </div>
+        <div class="telemetry-cell">
+          <span class="cell-label">RSA AMPLITUDE</span>
+          <span class="cell-val" id="rsaAmp">0.0 ms</span>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="pacer-actions">
+        <button class="btn-action btn-start" id="startBtn" onclick="togglePacer()">
+          <span>▶</span> INITIATE 0.1 Hz VAGAL LOCK
+        </button>
+        <button class="btn-action" onclick="resetPacer()">
+          <span>↺</span> RESET
+        </button>
+      </div>
+
+      <div style="font-size: 0.75rem; color: var(--text-dim); line-height: 1.6; background: rgba(0,0,0,0.3); padding: 12px; border-radius: 4px; border-left: 2px solid var(--text-amber);">
+        <strong>CLINICAL SAFE-HARBOR ADVISORY (MODULE 1.5):</strong> Resonant frequency breathing triggers immediate parasympathetic dominance via the vagus nerve (Cranial Nerve X). Amygdala threat alarms are silenced, lowering cortisol and establishing the sterile cognitive cleanroom required for ritual operations.
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="book-callout">
+      <span>📖</span>
+      <span>Documented in <strong>Applied Cyber-Occultism</strong> (Module 1.5: Schematic 2, Page 36).</span>
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank">Order Physical Edition on Amazon</a>
+    </div>
+    <div>Wetware Protocol: <span style="color: var(--green-ok);">0.1 Hz PHASE-LOCKED</span></div>
+  </footer>
+
+  <script>
+    let isRunning = false;
+    let timerId = null;
+    let animFrameId = null;
+    let startTime = 0;
+    let ratioType = 'symmetric'; // 'symmetric' (5s/5s) or 'clamp' (4s/6s)
+    let audioCtx = null;
+
+    let inhaleDuration = 5.0;
+    let exhaleDuration = 5.0;
+    let cycleDuration = 10.0;
+
+    let coherence = 35.0;
+    let rsa = 20.0;
+
+    function setRatio(type) {
+      ratioType = type;
+      document.querySelectorAll('.btn-ratio').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (type === 'symmetric') {
+        inhaleDuration = 5.0;
+        exhaleDuration = 5.0;
+      } else {
+        inhaleDuration = 4.0;
+        exhaleDuration = 6.0;
+      }
+      cycleDuration = inhaleDuration + exhaleDuration;
+      document.getElementById('cadenceVal').textContent = `${(60 / cycleDuration).toFixed(1)} BPM`;
+    }
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playTone(freq, duration) {
+      if (!document.getElementById('audioToggle').checked) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+        gain.gain.setValueAtTime(0.01, audioCtx.currentTime);
+        gain.gain.linearRampToValueAtTime(0.15, audioCtx.currentTime + 0.1);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function togglePacer() {
+      if (isRunning) {
+        stopPacer();
+      } else {
+        startPacer();
+      }
+    }
+
+    function startPacer() {
+      isRunning = true;
+      initAudio();
+      const btn = document.getElementById('startBtn');
+      btn.innerHTML = '<span>⏹</span> TERMINATE VAGAL LOCK';
+      btn.classList.add('running');
+      startTime = Date.now();
+
+      animatePacer();
+    }
+
+    function stopPacer() {
+      isRunning = false;
+      const btn = document.getElementById('startBtn');
+      btn.innerHTML = '<span>▶</span> INITIATE 0.1 Hz VAGAL LOCK';
+      btn.classList.remove('running');
+      cancelAnimationFrame(animFrameId);
+
+      document.getElementById('phaseText').textContent = 'STANDBY';
+      document.getElementById('phaseSub').textContent = 'PARASYMPATHETIC BRAKE READY';
+      document.getElementById('cycleCount').textContent = '--';
+      document.getElementById('vagalStatus').textContent = 'DISENGAGED';
+      document.getElementById('vagalStatus').style.color = 'var(--text-amber)';
+      renderPacerSvg(0.4);
+    }
+
+    function resetPacer() {
+      stopPacer();
+      coherence = 35.0;
+      rsa = 20.0;
+      document.getElementById('coherenceVal').textContent = '-- %';
+      document.getElementById('rsaAmp').textContent = '0.0 ms';
+      document.getElementById('sessionTime').textContent = 'ELAPSED: 00:00';
+    }
+
+    let lastPhase = '';
+
+    function animatePacer() {
+      if (!isRunning) return;
+
+      const elapsedSec = (Date.now() - startTime) / 1000.0;
+      const cycleTime = elapsedSec % cycleDuration;
+
+      // Update Session Elapsed
+      const mins = Math.floor(elapsedSec / 60).toString().padStart(2, '0');
+      const secs = Math.floor(elapsedSec % 60).toString().padStart(2, '0');
+      document.getElementById('sessionTime').textContent = `ELAPSED: ${mins}:${secs}`;
+
+      // Simulate ascending coherence
+      if (coherence < 99.0) {
+        coherence += 0.05;
+        rsa += 0.08;
+      }
+      document.getElementById('coherenceVal').textContent = `${coherence.toFixed(1)} %`;
+      document.getElementById('rsaAmp').textContent = `${rsa.toFixed(1)} ms`;
+
+      let progress = 0; // 0.0 (contracted) to 1.0 (expanded)
+      let phase = '';
+      let remaining = 0;
+
+      if (cycleTime < inhaleDuration) {
+        // Inhalation phase: expanding 0 -> 1
+        phase = 'INHALE';
+        progress = cycleTime / inhaleDuration;
+        remaining = (inhaleDuration - cycleTime).toFixed(1);
+
+        document.getElementById('phaseText').textContent = 'INHALE';
+        document.getElementById('phaseText').style.color = 'var(--text-cyan)';
+        document.getElementById('phaseSub').textContent = 'SYMPATHETIC RISE (PERFUSE)';
+        document.getElementById('cycleCount').textContent = `${remaining}s`;
+        document.getElementById('vagalStatus').textContent = 'BRAKE RELEASE';
+        document.getElementById('vagalStatus').style.color = 'var(--text-cyan)';
+
+        if (lastPhase !== 'INHALE') {
+          playTone(432, 0.4); // Inhalation chime
+          lastPhase = 'INHALE';
+        }
+      } else {
+        // Exhalation phase: contracting 1 -> 0
+        phase = 'EXHALE';
+        const exTime = cycleTime - inhaleDuration;
+        progress = 1.0 - (exTime / exhaleDuration);
+        remaining = (exhaleDuration - exTime).toFixed(1);
+
+        document.getElementById('phaseText').textContent = 'EXHALE';
+        document.getElementById('phaseText').style.color = 'var(--text-amber)';
+        document.getElementById('phaseSub').textContent = 'VAGAL BRAKE CLAMP (ACETYLCHOLINE)';
+        document.getElementById('cycleCount').textContent = `${remaining}s`;
+        document.getElementById('vagalStatus').textContent = 'BRAKE CLAMPED';
+        document.getElementById('vagalStatus').style.color = 'var(--green-ok)';
+
+        if (lastPhase !== 'EXHALE') {
+          playTone(324, 0.5); // Exhalation grounding chime
+          lastPhase = 'EXHALE';
+        }
+      }
+
+      // Smooth cosine easing
+      const easedProgress = (1 - Math.cos(progress * Math.PI)) / 2;
+      renderPacerSvg(easedProgress);
+
+      animFrameId = requestAnimationFrame(animatePacer);
+    }
+
+    function renderPacerSvg(progress) {
+      const svg = document.getElementById('pacerSvg');
+      const cx = 250;
+      const cy = 250;
+      const minR = 60;
+      const maxR = 210;
+      const currR = minR + (progress * (maxR - minR));
+
+      // Construct concentric HUD rings
+      let rings = [];
+      rings.push(`  <circle cx="${cx}" cy="${cy}" r="${currR.toFixed(1)}" fill="rgba(6, 182, 212, 0.08)" stroke="#38bdf8" stroke-width="2.5" />`);
+      rings.push(`  <circle cx="${cx}" cy="${cy}" r="${(currR * 0.75).toFixed(1)}" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.8" />`);
+      rings.push(`  <circle cx="${cx}" cy="${cy}" r="${(currR * 0.5).toFixed(1)}" fill="none" stroke="#06b6d4" stroke-width="1.0" opacity="0.5" />`);
+
+      // Cardinal grounding ticks
+      [0, 45, 90, 135, 180, 225, 270, 315].forEach(deg => {
+        const rad = deg * Math.PI / 180;
+        const x1 = cx + (currR - 8) * Math.cos(rad);
+        const y1 = cy + (currR - 8) * Math.sin(rad);
+        const x2 = cx + (currR + 8) * Math.cos(rad);
+        const y2 = cy + (currR + 8) * Math.sin(rad);
+        rings.push(`  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#f59e0b" stroke-width="2.0" />`);
+      });
+
+      svg.innerHTML = `
+        <defs>
+          <radialGradient id="pacerGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.25"/>
+            <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#030508" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <!-- Static outer ring boundary -->
+        <circle cx="${cx}" cy="${cy}" r="225" fill="none" stroke="#21262d" stroke-width="1.5"/>
+        <circle cx="${cx}" cy="${cy}" r="${currR.toFixed(1)}" fill="url(#pacerGlow)"/>
+        ${rings.join('\n')}
+      `;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderPacerSvg(0.4);
+    });
+  </script>
+</body>
+</html>

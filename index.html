@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APPLIED CYBER-OCCULTISM // MASTER TERMINAL SUITE</title>
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="APPLIED CYBER-OCCULTISM // MASTER OPERATING SUITE">
+  <meta property="og:description" content="The definitive developer's suite for chaos magick, belief compilers, and metaphysical botnets. Volume 1 of The Undefined Behavior Series by Sir Leonard Daragan.">
+  <meta property="og:url" content="https://sirleonarddaragan.github.io/applied-cyber-occultism/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#07090e">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&display=swap');
+
+    :root {
+      --bg-void: #07090e;
+      --bg-panel: #0d1117;
+      --bg-card: #161b22;
+      --border-dim: #21262d;
+      --border-glow: #06b6d4;
+      --text-amber: #f59e0b;
+      --text-cyan: #38bdf8;
+      --text-dim: #8b949e;
+      --text-main: #e6edf3;
+      --red-alert: #f43f5e;
+      --green-ok: #10b981;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    /* Subtle CRT Scanlines */
+    body::before {
+      content: " ";
+      position: fixed;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+      background-size: 100% 3px;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.25;
+    }
+
+    /* Top Navigation HUD */
+    header {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-dim);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      color: var(--text-amber);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+    .brand-sub {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      border-left: 1px solid var(--border-dim);
+      padding-left: 12px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-tab {
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-dim);
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-tab:hover, .nav-tab.active {
+      color: var(--text-cyan);
+      border-color: var(--border-glow);
+      background: rgba(6, 182, 212, 0.1);
+      box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+    }
+
+    .external-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+    }
+    .external-links a {
+      color: var(--text-amber);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .external-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 6px var(--text-amber);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      padding: 30px 24px;
+      max-width: 1550px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(13, 17, 23, 0.95), rgba(7, 9, 14, 0.95));
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; width: 300px; height: 100%;
+      background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-text {
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hero-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+    .hero-title span {
+      color: var(--text-amber);
+    }
+    .hero-desc {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .h-badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-dim);
+      color: var(--text-cyan);
+    }
+
+    /* Module Cards Grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1200px) {
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .modules-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .module-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    .module-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.2);
+    }
+    .mod-top {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mod-tag {
+      font-size: 0.7rem;
+      color: var(--text-amber);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .mod-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .mod-desc {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+    .mod-spec {
+      background: rgba(0, 0, 0, 0.35);
+      border-left: 2px solid var(--text-cyan);
+      padding: 6px 10px;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      border-radius: 2px;
+    }
+    .btn-launch {
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid var(--border-glow);
+      color: var(--text-cyan);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: block;
+      text-transform: uppercase;
+    }
+    .btn-launch:hover {
+      background: var(--text-cyan);
+      color: #07090e;
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+    }
+
+    /* Grimoire Cheatsheet Panel */
+    .reference-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ref-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 10px;
+    }
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 960px) {
+      .ref-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .ref-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.8rem;
+    }
+    .ref-card h4 {
+      color: var(--text-amber);
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 4px;
+    }
+    .ref-card ul {
+      list-style-type: none;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: #94a3b8;
+    }
+    .ref-card li strong {
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border-dim);
+      padding: 18px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .book-callout {
+      color: var(--text-amber);
+    }
+    .book-callout a {
+      color: var(--text-cyan);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">⚡ APPLIED CYBER-OCCULTISM // TERMINAL</div>
+      <div class="brand-sub">The Undefined Behavior Series · Vol 1 · Codex Press</div>
+    </div>
+
+    <nav class="nav-tabs">
+      <a class="nav-tab" href="sigil.html">F1: SIGIL COMPILER</a>
+      <a class="nav-tab" href="servitor.html">F2: SERVIDOR MANIFEST</a>
+      <a class="nav-tab" href="tarot.html">F3: TAROT HEAP DUMP</a>
+      <a class="nav-tab" href="vagal.html">F4: 0.1Hz VAGAL PACER</a>
+      <a class="nav-tab active" href="index.html">F5: MASTER SUITE</a>
+    </nav>
+
+    <div class="external-links">
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener">📖 Amazon Field Manual</a>
+      <a href="https://ko-fi.com/sirleonarddaragan" target="_blank" rel="noopener">⚡ Sponsor Compute</a>
+      <a href="https://sirleonarddaragan.substack.com" target="_blank" rel="noopener">📡 Field Dispatches</a>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <main>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-text">
+        <div class="hero-title">OPERATIVE <span>CYBER-OCCULT</span> RUNTIME SUITE</div>
+        <div class="hero-desc">
+          Consensus reality is a dynamic just-in-time (JIT) execution engine. This software suite provides verified systems engineering utilities implementing the deterministic protocols documented in <strong>Applied Cyber-Occultism (Volume 1)</strong>: Austin Osman Spare lossy binary compilers, POSIX autonomous servitor daemons, 78-element stochastic memory heap snapshots, and 0.1 Hz vagal lock cleanroom pacers.
+        </div>
+        <div class="hero-badges">
+          <span class="h-badge">AUTHOR: SIR LEONARD DARAGAN</span>
+          <span class="h-badge">CANON: THE UNDEFINED BEHAVIOR SERIES</span>
+          <span class="h-badge">SECURITY: ZERO-TRUST PRIVILEGE RING 0</span>
+          <span class="h-badge">STATUS: LIVE PRODUCTION</span>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener" class="btn-launch" style="padding: 14px 22px; font-size: 0.85rem; border-color: var(--text-amber); color: var(--text-amber); background: rgba(245, 158, 11, 0.1);">
+          📖 ORDER COLLECTOR'S EDITION
+        </a>
+      </div>
+    </section>
+
+    <!-- 4 Module Suite Cards -->
+    <section class="modules-grid">
+      <!-- Module 1: Sigil Compiler -->
+      <div class="module-card">
+        <div class="mod-top">
+          <div class="mod-tag">MODULE 3 · SCHEMATIC 4</div>
+          <div class="mod-name">SIGIL.EXE</div>
+          <div class="mod-desc">The 5-Stage Austin Osman Spare (AOS) compilation pipeline. Lossy vowel stripping, Shannon entropy deduplication, Ilm al-Huruf Abjad checksum hashing, and Eulerian vector reduction.</div>
+        </div>
+        <div class="mod-spec">
+          OUTPUT: SVG / PNG / ASCII<br>
+          GNOSIS FLASH: TACHISTOSCOPIC RETINAL BURN
+        </div>
+        <a href="sigil.html" class="btn-launch">LAUNCH SIGIL.EXE [F1]</a>
+      </div>
+
+      <!-- Module 2: Servitor Manifest -->
+      <div class="module-card">
+        <div class="mod-top">
+          <div class="mod-tag">MODULE 4 · SCHEMATIC 5</div>
+          <div class="mod-name">SERVITOR.EXE</div>
+          <div class="mod-desc">Production POSIX background thoughtform daemon provisioner. Conforms to schema v1alpha1 with physical hardware anchors, attention power budgets, and TTL exponential decay calculus.</div>
+        </div>
+        <div class="mod-spec">
+          OUTPUT: DAEMON.YAML / SYSTEMD.SERVICE<br>
+          HALT: SIGTERM & IMMEDIATE SIGKILL
+        </div>
+        <a href="servitor.html" class="btn-launch">LAUNCH SERVIDOR.EXE [F2]</a>
+      </div>
+
+      <!-- Module 3: Tarot Heap Dump -->
+      <div class="module-card">
+        <div class="mod-top">
+          <div class="mod-tag">MODULE 5 · SCHEMATIC 6</div>
+          <div class="mod-name">TAROT_HEAP.DUMP</div>
+          <div class="mod-desc">78-Element memory heap snapshot diagnostics. 22 Core Kernel Opcodes + 56 Peripheral I/O Telemetry Registers evaluated via bistable Kramers rate stochastic resonance dithering.</div>
+        </div>
+        <div class="mod-spec">
+          REGISTERS: PAST / PRESENT / FUTURE<br>
+          DITHER: GAUSSIAN NOISE (D ≈ ΔV)
+        </div>
+        <a href="tarot.html" class="btn-launch">LAUNCH TAROT_HEAP.DUMP [F3]</a>
+      </div>
+
+      <!-- Module 4: 0.1 Hz Vagal Pacer -->
+      <div class="module-card">
+        <div class="mod-top">
+          <div class="mod-tag">MODULE 1.5 · SCHEMATIC 2</div>
+          <div class="mod-name">GNOSIS_PULSE.EXE</div>
+          <div class="mod-desc">0.1 Hz resonant frequency breathing pacer. Phase-locks respiratory sinus arrhythmia and Mayer blood pressure waves to down-regulate the amygdala and boot the Zero-Trust cleanroom.</div>
+        </div>
+        <div class="mod-spec">
+          CADENCE: 6.0 BPM (0.10 Hz)<br>
+          AUDIO: 432 Hz SINE PACING TONE
+        </div>
+        <a href="vagal.html" class="btn-launch">LAUNCH GNOSIS_PULSE [F4]</a>
+      </div>
+    </section>
+
+    <!-- Grimoire Reference Cheatsheet -->
+    <section class="reference-panel">
+      <div class="ref-header">
+        <span style="color: var(--text-amber); font-weight: 700; font-size: 0.95rem;">
+          SYSTEMS REFERENCE // THE DEVELOPER'S GRIMOIRE RUNBOOK
+        </span>
+        <span style="font-size: 0.75rem; color: var(--text-dim);">VOLUME 1 ARCHITECTURE</span>
+      </div>
+
+      <div class="ref-grid">
+        <!-- Rings -->
+        <div class="ref-card">
+          <h4>COGNITIVE PRIVILEGE RINGS</h4>
+          <ul>
+            <li><strong>Ring 3 (User Space):</strong> Narrative ego, discursive internal monologue, social identity.</li>
+            <li><strong>Ring 1 (Device Drivers):</strong> Sensory gating filters, emotional cascades, thalamic routing.</li>
+            <li><strong>Ring 0 (Kernel Space):</strong> Autonomic subcortical substrate, vagal brake, involuntary reflexes.</li>
+            <li><strong>Ring -1 (Hypervisor):</strong> The pre-informational substrate; reality rendering engine.</li>
+          </ul>
+        </div>
+
+        <!-- 5-Stage Sigil -->
+        <div class="ref-card">
+          <h4>5-STAGE AOS PIPELINE</h4>
+          <ul>
+            <li><strong>Stage 1 (Tokenization):</strong> Positive present-tense affirmative; zero negative booleans.</li>
+            <li><strong>Stage 2 (UNIX Strip):</strong> Convert ASCII uppercase, purge punctuation and vowels (A,E,I,O,U).</li>
+            <li><strong>Stage 3 (Entropy Dedup):</strong> Strict first-occurrence consonant preservation; maximize H(X).</li>
+            <li><strong>Stage 4 (Vector Reduction):</strong> Fuse shared stems onto central spine; close Eulerian loop.</li>
+            <li><strong>Stage 5 (Abjad Checksum):</strong> Ilm al-Huruf sum verification; bind to circular enclosure.</li>
+          </ul>
+        </div>
+
+        <!-- Servitor Lifecycle -->
+        <div class="ref-card">
+          <h4>DAEMON LIFECYCLE & TTL</h4>
+          <ul>
+            <li><strong>fork() & setsid():</strong> Detach thoughtform from conscious narrative inspection.</li>
+            <li><strong>Hardware Anchor:</strong> Bind execution thread to physical cold token (YubiKey/Talisman).</li>
+            <li><strong>Decay Equation:</strong> N(t) = N₀ · e^(-λt) where λ = ln(2) / T½.</li>
+            <li><strong>Emergency SIGKILL:</strong> Trigeminal mammalian dive plunge to de-allocate rogue loop.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="book-callout">
+      <span>📖</span>
+      <span>The Definitive Developer's Guide to Chaos Magick: <strong>Applied Cyber-Occultism</strong> by Sir Leonard Daragan.</span>
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener">Available in Hardcover, Paperback & Kindle on Amazon</a>
+    </div>
+    <div>System Status: <span style="color: var(--green-ok);">ALL SYSTEMS NOMINAL (4 MODULES ACTIVE)</span></div>
+  </footer>
+
+</body>
+</html>

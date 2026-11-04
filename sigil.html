@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AOS SIGIL COMPILER // APPLIED CYBER-OCCULTISM</title>
+
+  <!-- OpenGraph & Twitter Metadata -->
+  <meta property="og:title" content="AOS SIGIL COMPILER // APPLIED CYBER-OCCULTISM">
+  <meta property="og:description" content="The 5-Stage Austin Osman Spare Sigil Compilation Engine & Lossy Vector Hash Runtime. Compiles semantic intent into non-semantic Ring 0 cryptographic binaries.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sirleonarddaragan.github.io/applied-cyber-occultism/sigil.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@SirLeonardDaragan">
+  <meta name="theme-color" content="#07090e">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&display=swap');
+
+    :root {
+      --bg-void: #07090e;
+      --bg-panel: #0d1117;
+      --bg-card: #161b22;
+      --border-dim: #21262d;
+      --border-glow: #06b6d4;
+      --text-amber: #f59e0b;
+      --text-cyan: #38bdf8;
+      --text-dim: #8b949e;
+      --text-main: #e6edf3;
+      --red-alert: #f43f5e;
+      --green-ok: #10b981;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    /* Subtle CRT Scanline overlay */
+    body::before {
+      content: " ";
+      position: fixed;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+      background-size: 100% 3px;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.25;
+    }
+
+    /* Tachistoscopic Retinal Burn Keyframe Animation */
+    @keyframes tachistoscopicBurn {
+      0% {
+        filter: invert(0) brightness(1);
+        background: #030508;
+      }
+      25% {
+        filter: invert(1) brightness(2.8) contrast(3.5);
+        background: #ffffff;
+      }
+      50% {
+        filter: invert(0) brightness(1.2);
+        background: #030508;
+      }
+      75% {
+        filter: invert(1) brightness(3.0) contrast(4);
+        background: #ffffff;
+      }
+      100% {
+        filter: invert(0) brightness(1);
+        background: #030508;
+      }
+    }
+
+    .canvas-wrapper.gnosis-strobe {
+      animation: tachistoscopicBurn 0.38s steps(2, start);
+    }
+
+    /* Top Navigation HUD */
+    header {
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border-dim);
+      padding: 12px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      color: var(--text-amber);
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+    .brand-sub {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      border-left: 1px solid var(--border-dim);
+      padding-left: 12px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-tab {
+      color: var(--text-dim);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-dim);
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-tab:hover, .nav-tab.active {
+      color: var(--text-cyan);
+      border-color: var(--border-glow);
+      background: rgba(6, 182, 212, 0.1);
+      box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+    }
+
+    .external-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.8rem;
+    }
+    .external-links a {
+      color: var(--text-amber);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .external-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 6px var(--text-amber);
+    }
+
+    /* Main Container Grid */
+    main {
+      flex: 1;
+      padding: 24px;
+      max-width: 1550px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 1080px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 10px;
+    }
+    .panel-title {
+      font-size: 0.9rem;
+      color: var(--text-amber);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--text-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      border-radius: 3px;
+    }
+
+    /* Form & Input */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    label {
+      font-size: 0.8rem;
+      color: var(--text-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    textarea {
+      width: 100%;
+      background: var(--bg-void);
+      border: 1px solid var(--border-dim);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      padding: 12px;
+      border-radius: 4px;
+      resize: vertical;
+      min-height: 80px;
+      transition: border 0.2s ease;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: var(--border-glow);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+    }
+
+    .preset-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .preset-label {
+      color: var(--text-dim);
+    }
+    .btn-preset {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      color: var(--text-dim);
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      cursor: pointer;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      transition: all 0.2s ease;
+    }
+    .btn-preset:hover {
+      color: var(--text-amber);
+      border-color: var(--text-amber);
+    }
+
+    /* Warnings Alert */
+    .censor-alert {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid var(--red-alert);
+      color: #fda4af;
+      padding: 10px 14px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      display: none;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    /* Pipeline Telemetry Stages */
+    .pipeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .stage-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 0.82rem;
+    }
+    .stage-card-header {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-amber);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .stage-val {
+      font-family: var(--font-mono);
+      color: #fff;
+      word-break: break-all;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px 10px;
+      border-radius: 3px;
+      border-left: 2px solid var(--text-cyan);
+    }
+    .dedup-stream {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .dedup-chip {
+      padding: 2px 6px;
+      font-size: 0.72rem;
+      border-radius: 2px;
+    }
+    .dedup-chip.retain {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--green-ok);
+      color: #6ee7b7;
+    }
+    .dedup-chip.purge {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: #71717a;
+      text-decoration: line-through;
+    }
+
+    .abjad-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .abjad-cell {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border-dim);
+      padding: 4px;
+      text-align: center;
+      border-radius: 2px;
+    }
+    .abjad-cell .char {
+      color: var(--text-amber);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .abjad-cell .val {
+      color: var(--text-cyan);
+      font-size: 0.7rem;
+    }
+
+    /* Right Canvas Panel */
+    .canvas-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .canvas-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #030508;
+      border: 1px solid var(--border-dim);
+      border-radius: 6px;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+      overflow: hidden;
+      transition: filter 0.1s ease;
+    }
+    #sigilSvgContainer {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #sigilSvgContainer svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Action Buttons */
+    .action-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+      margin-top: 14px;
+    }
+    .btn-action {
+      background: var(--bg-card);
+      border: 1px solid var(--border-dim);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-transform: uppercase;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn-action:hover {
+      border-color: var(--border-glow);
+      color: var(--text-cyan);
+      background: rgba(6, 182, 212, 0.08);
+    }
+    .btn-gnosis {
+      grid-column: span 2;
+      background: rgba(245, 158, 11, 0.12);
+      border-color: var(--text-amber);
+      color: var(--text-amber);
+      font-size: 0.9rem;
+      padding: 12px;
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+    }
+    .btn-gnosis:hover {
+      background: var(--text-amber);
+      color: #000;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+    }
+
+    /* Terminal Emission / Raw ASCII */
+    .ascii-drawer {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .ascii-drawer pre {
+      background: #040608;
+      border: 1px solid var(--border-dim);
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+      max-height: 120px;
+    }
+
+    /* Commercial Conversion Intercept Modal */
+    #exportModal {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(3, 5, 8, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 10002;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: var(--bg-panel);
+      border: 1px solid var(--text-amber);
+      max-width: 560px;
+      width: 90%;
+      padding: 24px;
+      border-radius: 6px;
+      box-shadow: 0 0 40px rgba(245, 158, 11, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dim);
+      padding-bottom: 8px;
+    }
+    .modal-title {
+      color: var(--text-amber);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.3rem;
+      cursor: pointer;
+    }
+
+    /* HUD Toast Notification */
+    #hudToast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0d1117;
+      border: 1px solid var(--border-glow);
+      color: var(--text-cyan);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 10px 18px;
+      border-radius: 4px;
+      box-shadow: 0 0 18px rgba(6, 182, 212, 0.4);
+      z-index: 10001;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      transform: translateY(10px);
+    }
+    #hudToast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer & Book Cross-Reference */
+    footer {
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border-dim);
+      padding: 16px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .book-callout {
+      color: var(--text-amber);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .book-callout a {
+      color: var(--text-cyan);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Conversion Intercept Modal -->
+  <div id="exportModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">⚡ [!] MEMORY VECTOR COMPILED TO RING 0</div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6;">
+        The non-semantic vector has been compiled and bound to your local memory buffer. However, an ungrounded sigil remains inert in user space. To inject this output into somatic subconscious firmware, execute the <strong>Bare-Metal Evocation Runbooks</strong> detailed in:
+      </p>
+      <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid var(--text-amber); padding: 12px;">
+        <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">APPLIED CYBER-OCCULTISM (VOL. 1)</div>
+        <div style="font-size: 0.75rem; color: var(--text-dim);">By Sir Leonard Daragan · 136 Pages · Codex Press</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener" class="btn-action" style="border-color: var(--text-amber); color: var(--text-amber);">
+          📖 ORDER PHYSICAL MANUAL
+        </a>
+        <a href="https://sirleonarddaragan.substack.com" target="_blank" rel="noopener" class="btn-action" style="border-color: var(--border-glow); color: var(--text-cyan);">
+          📡 CLASSIFIED SUBSTACK
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD Toast Notification -->
+  <div id="hudToast">⚡ BUFFER COPIED TO CLIPBOARD</div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">⚡ SIGIL.EXE // RUNTIME</div>
+      <div class="brand-sub">The 5-Stage AOS Compilation Engine · Vol 1</div>
+    </div>
+
+    <nav class="nav-tabs">
+      <a class="nav-tab active" href="sigil.html">F1: SIGIL COMPILER</a>
+      <a class="nav-tab" href="servitor.html">F2: SERVIDOR MANIFEST</a>
+      <a class="nav-tab" href="tarot.html">F3: TAROT HEAP DUMP</a>
+      <a class="nav-tab" href="vagal.html">F4: 0.1Hz VAGAL PACER</a>
+      <a class="nav-tab" href="index.html">F5: MASTER SUITE</a>
+    </nav>
+
+    <div class="external-links">
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener">📖 Physical Manual</a>
+      <a href="https://ko-fi.com/sirleonarddaragan" target="_blank" rel="noopener">⚡ Sponsor Compute</a>
+      <a href="https://sirleonarddaragan.substack.com" target="_blank" rel="noopener">📡 Field Dispatches</a>
+    </div>
+  </header>
+
+  <!-- Main Grid -->
+  <main>
+    <!-- Left Column: Source Code & Compilation Pipeline -->
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>SOURCE CODE COMPILER</span>
+          <span class="badge">UNIX STRIP + SHANNON DEDUP</span>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-dim);" id="entropyIndicator">Entropy: -- bits</div>
+      </div>
+
+      <div class="form-group">
+        <label for="intentInput">STATEMENT OF INTENT (LEXICAL SOURCE CODE)</label>
+        <textarea id="intentInput" placeholder="Enter positive, present-tense, invariant statement...">MY STARTING SALARY IS EIGHTY THOUSAND DOLLARS</textarea>
+      </div>
+
+      <div class="preset-bar">
+        <span class="preset-label">CANONICAL PRESETS:</span>
+        <button class="btn-preset" onclick="loadPreset(1)">--preset=01_SALARY</button>
+        <button class="btn-preset" onclick="loadPreset(2)">--preset=02_BIOLOGY</button>
+        <button class="btn-preset" onclick="loadPreset(3)">--preset=03_OPSEC</button>
+      </div>
+
+      <!-- Censor Warning Alert -->
+      <div class="censor-alert" id="censorAlert">
+        <span>⚠️</span>
+        <div id="censorMsg"></div>
+      </div>
+
+      <!-- Pipeline Telemetry -->
+      <div class="pipeline-container">
+        <!-- Stage 2 -->
+        <div class="stage-card">
+          <div class="stage-card-header">
+            <span>STAGE 2: UNIX STRIP (VOWEL PURGE)</span>
+            <span id="stripLen" style="color: var(--text-dim);">Len: 0</span>
+          </div>
+          <div class="stage-val" id="stage2Output">--</div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div class="stage-card">
+          <div class="stage-card-header">
+            <span>STAGE 3: FIRST-OCCURRENCE DEDUPLICATION</span>
+            <span id="vectorLen" style="color: var(--text-cyan);">Vector: 0 chars</span>
+          </div>
+          <div class="stage-val" id="stage3Output" style="border-left-color: var(--green-ok);">--</div>
+          <div class="dedup-stream" id="dedupTrace"></div>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="stage-card">
+          <div class="stage-card-header">
+            <span>STAGE 5: ABJAD CHECKSUM & SHA-256 PROCESS HASH</span>
+            <span id="abjadTotal" style="color: var(--text-amber); font-weight: 700;">Sum: 0</span>
+          </div>
+          <div class="abjad-grid" id="abjadGrid"></div>
+          <div style="margin-top: 8px; font-size: 0.72rem; color: var(--text-dim);">
+            PROCESS HASH: <span id="shaOutput" style="color: var(--text-cyan); font-family: monospace;">--</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Visual Sigil Glyph & Gnosis Ignition -->
+    <section class="panel canvas-panel">
+      <div class="panel-header" style="width: 100%;">
+        <div class="panel-title">
+          <span>TOPOLOGICAL VECTOR GLYPH</span>
+          <span class="badge">EULERIAN GRAPH REDUCTION</span>
+        </div>
+        <div style="font-size: 0.75rem; color: var(--text-dim);">RING 0 BINARY</div>
+      </div>
+
+      <!-- Interactive SVG Canvas Wrapper with Tachistoscopic Retinal Burn -->
+      <div class="canvas-wrapper" id="sigilCanvasWrapper">
+        <div id="sigilSvgContainer"></div>
+      </div>
+
+      <!-- Action Controls -->
+      <div class="action-bar">
+        <button class="btn-action btn-gnosis" onclick="triggerGnosisFlash()">
+          <span>⚡</span> TRIGGER GNOSIS RETINAL FLASH (PRE-CONSCIOUS INJECTION)
+        </button>
+        <button class="btn-action" onclick="downloadSvg()">
+          <span>💾</span> EXPORT NEON (.SVG)
+        </button>
+        <button class="btn-action" onclick="downloadTalismanSvg()">
+          <span>🖨️</span> EXPORT B&W TALISMAN (.SVG)
+        </button>
+        <button class="btn-action" onclick="downloadPng()">
+          <span>🖼️</span> EXPORT 1200PX PNG
+        </button>
+        <button class="btn-action" onclick="copyTelemetry()">
+          <span>📋</span> COPY RAW ASCII
+        </button>
+        <button class="btn-action" style="grid-column: span 2;" onclick="shareToX()">
+          <span>🐦</span> SHARE VECTOR TELEMETRY TO X / TWITTER
+        </button>
+      </div>
+
+      <!-- Raw ASCII Telemetry Emission -->
+      <div class="ascii-drawer">
+        <pre id="asciiTelemetry">// INITIALIZING COMPILER RUNTIME...</pre>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="book-callout">
+      <span>📖</span>
+      <span>Documented in <strong>Applied Cyber-Occultism</strong> (Module 3: Schematic 4, Page 48).</span>
+      <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener">Available on Amazon (Paperback / Hardcover / Kindle)</a>
+    </div>
+    <div>System Status: <span style="color: var(--green-ok);">ONLINE (0 ERRORS)</span> · Sovereign UID: 0x00</div>
+  </footer>
+
+  <script>
+    // Classical Ilm al-Huruf Abjad mapping (Hebrew/Arabic lettristic standard)
+    const ABJAD_TABLE = {
+      'A': 1,   'B': 2,   'C': 20,  'D': 4,   'E': 5,
+      'F': 80,  'G': 3,   'H': 5,   'I': 10,  'J': 10,
+      'K': 20,  'L': 30,  'M': 40,  'N': 50,  'O': 70,
+      'P': 80,  'Q': 100, 'R': 200, 'S': 60,  'T': 400,
+      'U': 6,   'V': 6,   'W': 6,   'X': 60,  'Y': 10,
+      'Z': 7
+    };
+
+    const LETTER_PRIMITIVES = {
+      'B': ['vertical_spine', 'top_loop', 'bottom_loop'],
+      'C': ['left_arc'],
+      'D': ['vertical_spine', 'right_loop'],
+      'F': ['vertical_spine', 'top_horizontal', 'mid_horizontal'],
+      'G': ['left_arc', 'mid_horizontal_inward'],
+      'H': ['left_vertical', 'right_vertical', 'mid_horizontal'],
+      'J': ['top_horizontal', 'center_vertical_hook'],
+      'K': ['vertical_spine', 'upper_diagonal', 'lower_diagonal'],
+      'L': ['vertical_spine', 'bottom_horizontal'],
+      'M': ['vertical_spine', 'left_diagonal_down', 'right_diagonal_up', 'right_vertical'],
+      'N': ['vertical_spine', 'diagonal_down', 'right_vertical'],
+      'P': ['vertical_spine', 'top_loop'],
+      'Q': ['outer_circle', 'bottom_diagonal_spur'],
+      'R': ['vertical_spine', 'top_loop', 'lower_diagonal'],
+      'S': ['s_curve'],
+      'T': ['top_horizontal', 'vertical_spine'],
+      'V': ['left_diagonal_down', 'right_diagonal_up'],
+      'W': ['w_down_up_down_up'],
+      'X': ['diagonal_cross_forward', 'diagonal_cross_backward'],
+      'Y': ['upper_v_branch', 'vertical_spine'],
+      'Z': ['top_horizontal', 'diagonal_down_left', 'bottom_horizontal']
+    };
+
+    const VOWELS = new Set(['A', 'E', 'I', 'O', 'U']);
+    const NEGATIONS = ['not', 'never', "don't", 'dont', 'wont', "won't", 'no', 'cannot', "can't"];
+
+    // Presets
+    const PRESETS = {
+      1: "MY STARTING SALARY IS EIGHTY THOUSAND DOLLARS",
+      2: "MY BIOLOGICAL SUBSTRATE IS FULLY OPTIMIZED",
+      3: "SYSTEM SECURITY PERIMETER IS IMPERMEABLE"
+    };
+
+    function loadPreset(id) {
+      document.getElementById('intentInput').value = PRESETS[id];
+      compileIntent();
+    }
+
+    // SHA-256 Web Crypto
+    async function sha256(str) {
+      const buf = new TextEncoder().encode(str);
+      const digest = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // Main Compilation Engine
+    async function compileIntent() {
+      const raw = document.getElementById('intentInput').value.trim();
+      const censorAlert = document.getElementById('censorAlert');
+      const censorMsg = document.getElementById('censorMsg');
+
+      if (!raw) {
+        document.getElementById('sigilSvgContainer').innerHTML = '';
+        return;
+      }
+
+      // Normalize curly quotes from iOS/macOS
+      const cleaned = raw.replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"');
+
+      // Check for negative operators (Psychic Censor alert)
+      const lower = cleaned.toLowerCase();
+      let detectedNeg = null;
+      for (const neg of NEGATIONS) {
+        const reg = new RegExp('\\b' + neg + '\\b', 'i');
+        if (reg.test(lower)) {
+          detectedNeg = neg;
+          break;
+        }
+      }
+
+      if (detectedNeg) {
+        censorAlert.style.display = 'flex';
+        censorMsg.innerHTML = `<strong>ERR_0x01_CENSOR_TRIP:</strong> Detected negative operator '<em>${detectedNeg}</em>'. Subconscious kernel drops negation and executes root flaw. Rephrase into invariant affirmative reality.`;
+      } else {
+        censorAlert.style.display = 'none';
+      }
+
+      // Stage 2: Normalization & Vowel Stripping (UNIX strip)
+      const normalized = cleaned.toUpperCase().replace(/[^A-Z]/g, '');
+      const vowelsStripped = [];
+      for (const char of normalized) {
+        if (!VOWELS.has(char)) {
+          vowelsStripped.push(char);
+        }
+      }
+      const strippedStr = vowelsStripped.join('');
+      document.getElementById('stage2Output').textContent = strippedStr || '(EMPTY STREAM)';
+      document.getElementById('stripLen').textContent = `Len: ${strippedStr.length}`;
+
+      // Stage 3: Shannon Deduplication
+      const seen = new Set();
+      const consonantVector = [];
+      const dedupTrace = [];
+
+      for (const char of vowelsStripped) {
+        if (!seen.has(char)) {
+          seen.add(char);
+          consonantVector.push(char);
+          dedupTrace.push({ char, status: 'retain' });
+        } else {
+          dedupTrace.push({ char, status: 'purge' });
+        }
+      }
+
+      const vectorStr = consonantVector.join(', ');
+      document.getElementById('stage3Output').textContent = vectorStr ? `[ ${vectorStr} ]` : '[ EMPTY ]';
+      document.getElementById('vectorLen').textContent = `Vector: ${consonantVector.length} chars`;
+
+      // Render Dedup trace chips
+      const traceContainer = document.getElementById('dedupTrace');
+      traceContainer.innerHTML = '';
+      dedupTrace.forEach(item => {
+        const chip = document.createElement('span');
+        chip.className = `dedup-chip ${item.status}`;
+        chip.textContent = item.char;
+        traceContainer.appendChild(chip);
+      });
+
+      // Shannon Entropy H(X)
+      const freqs = {};
+      for (const c of strippedStr) freqs[c] = (freqs[c] || 0) + 1;
+      const totalC = strippedStr.length || 1;
+      let entropy = 0;
+      for (const k in freqs) {
+        const p = freqs[k] / totalC;
+        entropy -= p * Math.log2(p);
+      }
+      document.getElementById('entropyIndicator').textContent = `Shannon H: ${entropy.toFixed(3)} bits`;
+
+      // Stage 5: Abjad Checksum & SHA-256 Process Hash
+      let abjadSum = 0;
+      const abjadGrid = document.getElementById('abjadGrid');
+      abjadGrid.innerHTML = '';
+      consonantVector.forEach(c => {
+        const val = ABJAD_TABLE[c] || 0;
+        abjadSum += val;
+        const cell = document.createElement('div');
+        cell.className = 'abjad-cell';
+        cell.innerHTML = `<div class="char">${c}</div><div class="val">${val}</div>`;
+        abjadGrid.appendChild(cell);
+      });
+      document.getElementById('abjadTotal').textContent = `Sum: ${abjadSum}`;
+
+      // SHA-256 Hash
+      const hashPayload = `${normalized}|${consonantVector.join('')}|${abjadSum}`;
+      const hash = await sha256(hashPayload);
+      document.getElementById('shaOutput').textContent = hash.substring(0, 24) + '...';
+
+      // Stage 4: Topological Vector Reduction & SVG rendering (Harmonized constants)
+      const svg = generateSigilSvg(consonantVector, abjadSum, hash, 480, false);
+      document.getElementById('sigilSvgContainer').innerHTML = svg;
+
+      // Update ASCII Telemetry
+      updateAsciiTelemetry(raw, normalized, strippedStr, consonantVector, abjadSum, hash, entropy);
+    }
+
+    // Procedural SVG Generation (Harmonized with sigil_engine.py)
+    function generateSigilSvg(consonants, abjadSum, hash, size, cleanroom = false) {
+      const cx = size / 2;
+      const cy = size / 2;
+      const outerR = size * 0.42;
+      const innerR = size * 0.38;
+
+      const strokeGold = cleanroom ? "#000000" : "#f59e0b";
+      const strokeCyan = cleanroom ? "#000000" : "#38bdf8";
+      const strokeDim = cleanroom ? "#333333" : "#06b6d4";
+      const fillNode = cleanroom ? "#000000" : "#f59e0b";
+      const fillLoop = cleanroom ? "none" : "rgba(6, 182, 212, 0.05)";
+
+      const seedInts = [];
+      for (let i = 0; i < 32; i += 4) {
+        seedInts.push(parseInt(hash.substring(i, i + 4), 16));
+      }
+
+      let elements = [];
+
+      // 1. Memory Boundary Containers
+      elements.push(`  <circle cx="${cx}" cy="${cy}" r="${outerR}" fill="none" stroke="${strokeGold}" stroke-width="${cleanroom ? 2.0 : 2.5}" opacity="0.95" />`);
+      elements.push(`  <circle cx="${cx}" cy="${cy}" r="${innerR}" fill="none" stroke="${strokeDim}" stroke-width="1.2" stroke-dasharray="4 6" opacity="${cleanroom ? 0.8 : 0.6}" />`);
+
+      // Cardinal grounding ticks
+      [0, 90, 180, 270].forEach(deg => {
+        const rad = deg * Math.PI / 180;
+        const x1 = cx + (innerR - 8) * Math.cos(rad);
+        const y1 = cy + (innerR - 8) * Math.sin(rad);
+        const x2 = cx + (outerR + 6) * Math.cos(rad);
+        const y2 = cy + (outerR + 6) * Math.sin(rad);
+        elements.push(`  <line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${strokeGold}" stroke-width="2.0" />`);
+      });
+
+      // 2. Central Shared Spine (Vertical Axis)
+      const spineLen = innerR * 1.55;
+      const yTop = cy - (spineLen / 2);
+      const yBottom = cy + (spineLen / 2);
+      elements.push(`  <line x1="${cx}" y1="${yTop.toFixed(1)}" x2="${cx}" y2="${yBottom.toFixed(1)}" stroke="${strokeCyan}" stroke-width="3.5" stroke-linecap="round" />`);
+
+      // 3. Concentric Abjad Harmonic Ring (Harmonized constant: +30)
+      const coreR = (abjadSum % 35) + 30;
+      elements.push(`  <circle cx="${cx}" cy="${cy}" r="${coreR.toFixed(1)}" fill="none" stroke="${strokeGold}" stroke-width="2.0" opacity="0.85" />`);
+
+      // 4. Consonant Topological Reduction using LETTER_PRIMITIVES
+      const n = consonants.length;
+      const eulerianPts = [];
+
+      if (n > 0) {
+        const stepY = (spineLen * 0.75) / Math.max(n, 1);
+
+        consonants.forEach((c, idx) => {
+          const val = ABJAD_TABLE[c] || 10;
+          const primitives = LETTER_PRIMITIVES[c] || ['vertical_spine', 'top_loop'];
+          const currY = yTop + (spineLen * 0.12) + (idx * stepY);
+          const side = (idx % 2 === 0) ? -1 : 1;
+
+          elements.push(`  <!-- Consonant Token: ${c} -->`);
+
+          primitives.forEach(prim => {
+            if (prim.includes('loop')) {
+              const loopR = 12.0 + (val % 18);
+              const loopCx = cx + (side * loopR);
+              elements.push(`  <path d="M ${cx} ${(currY - loopR).toFixed(1)} A ${loopR} ${loopR} 0 0 ${side > 0 ? 1 : 0} ${cx} ${(currY + loopR).toFixed(1)}" fill="${fillLoop}" stroke="${strokeGold}" stroke-width="2.2" stroke-linecap="round" />`);
+              eulerianPts.push({ x: loopCx, y: currY });
+            } else if (prim.includes('horizontal')) {
+              const barW = 26.0 + (val % 30);
+              elements.push(`  <line x1="${(cx - barW/2).toFixed(1)}" y1="${currY.toFixed(1)}" x2="${(cx + barW/2).toFixed(1)}" y2="${currY.toFixed(1)}" stroke="${strokeCyan}" stroke-width="2.4" stroke-linecap="round" />`);
+              eulerianPts.push({ x: cx + (side * barW / 2), y: currY });
+            } else if (prim.includes('diagonal')) {
+              const diagLen = 35.0 + (val % 25);
+              const diagAngle = prim.includes('upper') || prim.includes('up') ? 35.0 : -35.0;
+              const rad = diagAngle * Math.PI / 180;
+              const dx = side * diagLen * Math.cos(rad);
+              const dy = -diagLen * Math.sin(rad);
+              const targetX = cx + dx;
+              const targetY = currY + dy;
+              elements.push(`  <line x1="${cx}" y1="${currY.toFixed(1)}" x2="${targetX.toFixed(1)}" y2="${targetY.toFixed(1)}" stroke="${strokeGold}" stroke-width="2.2" stroke-linecap="round" />`);
+              elements.push(`  <circle cx="${targetX.toFixed(1)}" cy="${targetY.toFixed(1)}" r="3.5" fill="${fillNode}" stroke="${strokeCyan}" stroke-width="1.2" />`);
+              eulerianPts.push({ x: targetX, y: targetY });
+            } else if (prim.includes('arc')) {
+              const arcR = 28.0 + (val % 20);
+              const arcH = arcR * 1.6;
+              elements.push(`  <path d="M ${(cx - 10).toFixed(1)} ${(currY - arcH/2).toFixed(1)} Q ${(cx - arcR*1.5).toFixed(1)} ${currY.toFixed(1)} ${(cx - 10).toFixed(1)} ${(currY + arcH/2).toFixed(1)}" fill="none" stroke="${strokeCyan}" stroke-width="2.2" stroke-linecap="round" />`);
+              eulerianPts.push({ x: cx - arcR, y: currY });
+            } else if (prim.includes('s_curve')) {
+              const sW = 24.0;
+              const sH = 40.0;
+              elements.push(`  <path d="M ${(cx - sW).toFixed(1)} ${(currY - sH/2).toFixed(1)} C ${(cx + sW).toFixed(1)} ${(currY - sH/4).toFixed(1)}, ${(cx - sW).toFixed(1)} ${(currY + sH/4).toFixed(1)}, ${(cx + sW).toFixed(1)} ${(currY + sH/2).toFixed(1)}" fill="none" stroke="${strokeGold}" stroke-width="2.2" stroke-linecap="round" />`);
+              eulerianPts.push({ x: cx + (side * sW), y: currY });
+            }
+          });
+        });
+
+        // 5. Eulerian Continuity Interlock (Harmonized jitter: % 24 - 12)
+        if (eulerianPts.length >= 3) {
+          let pathD = `M ${eulerianPts[0].x.toFixed(1)} ${eulerianPts[0].y.toFixed(1)}`;
+          for (let i = 1; i < eulerianPts.length; i++) {
+            const pPrev = eulerianPts[i - 1];
+            const pCurr = eulerianPts[i];
+            const cpx = (pPrev.x + pCurr.x) / 2 + ((seedInts[i % 8] % 24) - 12);
+            const cpy = (pPrev.y + pCurr.y) / 2 + ((seedInts[(i + 1) % 8] % 24) - 12);
+            pathD += ` Q ${cpx.toFixed(1)} ${cpy.toFixed(1)} ${pCurr.x.toFixed(1)} ${pCurr.y.toFixed(1)}`;
+          }
+          const cpx = (eulerianPts[eulerianPts.length - 1].x + eulerianPts[0].x) / 2;
+          const cpy = (eulerianPts[eulerianPts.length - 1].y + eulerianPts[0].y) / 2;
+          pathD += ` Q ${cpx.toFixed(1)} ${cpy.toFixed(1)} ${eulerianPts[0].x.toFixed(1)} ${eulerianPts[0].y.toFixed(1)} Z`;
+          elements.push(`  <path d="${pathD}" fill="${fillLoop}" stroke="${strokeGold}" stroke-width="1.8" stroke-dasharray="6 3" opacity="${cleanroom ? 0.9 : 0.85}" />`);
+        }
+      }
+
+      // 6. Terminal Crown & Grounding Plates
+      elements.push(`  <path d="M ${cx - 16} ${yTop + 16} L ${cx} ${yTop} L ${cx + 16} ${yTop + 16}" fill="none" stroke="${strokeGold}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />`);
+      elements.push(`  <line x1="${cx - 24}" y1="${yBottom}" x2="${cx + 24}" y2="${yBottom}" stroke="${strokeCyan}" stroke-width="3" stroke-linecap="round" />`);
+      elements.push(`  <line x1="${cx - 14}" y1="${yBottom + 8}" x2="${cx + 14}" y2="${yBottom + 8}" stroke="${strokeCyan}" stroke-width="2" stroke-linecap="round" />`);
+      elements.push(`  <line x1="${cx - 6}" y1="${yBottom + 14}" x2="${cx + 6}" y2="${yBottom + 14}" stroke="${strokeCyan}" stroke-width="1.5" stroke-linecap="round" />`);
+
+      // 7. Permanent Cryptographic Attribution & Watermark Frame (Commercial Viral Engine)
+      if (!cleanroom) {
+        elements.push(`  <!-- Cryptographic Attribution Frame -->`);
+        elements.push(`  <text x="24" y="32" fill="#8b949e" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1">APPLIED CYBER-OCCULTISM // VOL. 1</text>`);
+        elements.push(`  <text x="${size - 24}" y="32" text-anchor="end" fill="#06b6d4" font-family="'JetBrains Mono', monospace" font-size="10">RING 0 // RUNTIME</text>`);
+        elements.push(`  <text x="24" y="${size - 24}" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9">SHA: ${hash.substring(0, 16)}...</text>`);
+        elements.push(`  <text x="${size - 24}" y="${size - 24}" text-anchor="end" fill="#8b949e" font-family="'JetBrains Mono', monospace" font-size="9">SIR LEONARD DARAGAN</text>`);
+      }
+
+      let bgContent = '';
+      let filterDef = '';
+      let gTag = '<g>';
+
+      if (!cleanroom) {
+        bgContent = `  <rect width="${size}" height="${size}" fill="#07090e" />\n  <circle cx="${cx}" cy="${cy}" r="${outerR + 20}" fill="url(#sigilGlow)" />`;
+        filterDef = `  <defs>
+    <radialGradient id="sigilGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.18" />
+      <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#07090e" stop-opacity="0" />
+    </radialGradient>
+    <filter id="neonBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>`;
+        gTag = '<g filter="url(#neonBlur)">';
+      }
+
+      return `<svg id="sigilSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">
+${filterDef}
+${bgContent}
+  ${gTag}
+${elements.join('\n')}
+  </g>
+</svg>`;
+    }
+
+    // Telemetry Update
+    function updateAsciiTelemetry(raw, norm, stripped, vec, abjad, hash, entropy) {
+      const ascii = `// ================================================================
+// APPLIED CYBER-OCCULTISM // SIGIL.EXE TELEMETRY LOG
+// MODULE 3: THE 5-STAGE AOS COMPILATION PIPELINE
+// OPERATOR: SOVEREIGN_UID_0x00 // STATUS: COMPILED_SUCCESS
+// ================================================================
+
+[STAGE 1: LEXICAL SOURCE CODE]
+INTENT: "${raw}"
+
+[STAGE 2: UNIX STRIP - NORMALIZATION & VOWEL PURGE]
+NORMALIZED: ${norm}
+CONSONANT STREAM: ${stripped}
+STREAM LENGTH: ${stripped.length} BYTES
+
+[STAGE 3: SHANNON DEDUPLICATION]
+CONSONANT VECTOR: [ ${vec.join(', ')} ]
+VECTOR LENGTH: ${vec.length} UNIQUE TOKENS
+SHANNON ENTROPY: ${entropy.toFixed(3)} BITS
+
+[STAGE 4: TOPOLOGICAL VECTOR REDUCTION]
+GEOMETRIC PRIMITIVES: SHARED SPINE, CARDINAL TICKS, EULERIAN INTERLOCK
+MUTUAL INFORMATION: I(X; Y) -> 0.000 (NON-SEMANTIC)
+
+[STAGE 5: ILM AL-HURUF ABJAD CHECKSUM & AUTH HASH]
+COMPOSITE ABJAD SUM: ${abjad}
+SHA-256 PROCESS HASH: ${hash}
+MEMORY CONTAINER: BOUNDED CIRCULAR ENCLOSURE (RING 0 RUNTIME)`;
+
+      document.getElementById('asciiTelemetry').textContent = ascii;
+    }
+
+    // Zero-Dependency Web Audio 60Hz -> 10Hz Acoustic Pulse
+    function playGnosisAudioPulse() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(65, audioCtx.currentTime); // 65Hz sub-bass ground
+        osc.frequency.exponentialRampToValueAtTime(10, audioCtx.currentTime + 0.35); // Ramp to 10Hz Alpha
+
+        gain.gain.setValueAtTime(0.35, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.36);
+      } catch (e) {
+        // AudioContext blocked or unsupported; silent fallback
+      }
+    }
+
+    // Tachistoscopic Retinal Gnosis Flash Trigger
+    function triggerGnosisFlash() {
+      const wrapper = document.getElementById('sigilCanvasWrapper');
+      wrapper.classList.remove('gnosis-strobe');
+      void wrapper.offsetWidth; // Force DOM reflow
+      wrapper.classList.add('gnosis-strobe');
+
+      playGnosisAudioPulse();
+
+      setTimeout(() => {
+        wrapper.classList.remove('gnosis-strobe');
+        openModal(); // Trigger conversion hook at moment of sensory reset!
+      }, 380);
+      showHudToast("GNOSIS PULSE INJECTED [RING 0 COMMIT]");
+    }
+
+    // Conversion Modal Control
+    function openModal() {
+      document.getElementById('exportModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('exportModal').style.display = 'none';
+    }
+
+    // Export SVG (Standard Neon with Watermark Frame)
+    function downloadSvg() {
+      const svg = document.getElementById('sigilSvgContainer').innerHTML;
+      if (!svg) return;
+      const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `SIGIL_${Date.now()}.svg`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showHudToast("VECTOR SIGIL EXPORTED (.SVG)");
+      setTimeout(openModal, 800);
+    }
+
+    // Export Cleanroom Talisman SVG (Pure B&W Vector)
+    async function downloadTalismanSvg() {
+      const raw = document.getElementById('intentInput').value.trim();
+      const cleaned = raw.replace(/[\u2018\u2019]/g, "'").replace(/[\u201c\u201d]/g, '"');
+      const normalized = cleaned.toUpperCase().replace(/[^A-Z]/g, '');
+      const vowelsStripped = [];
+      for (const char of normalized) {
+        if (!VOWELS.has(char)) vowelsStripped.push(char);
+      }
+      const seen = new Set();
+      const consonantVector = [];
+      for (const char of vowelsStripped) {
+        if (!seen.has(char)) {
+          seen.add(char);
+          consonantVector.push(char);
+        }
+      }
+      let abjadSum = 0;
+      consonantVector.forEach(c => abjadSum += (ABJAD_TABLE[c] || 0));
+      const hash = await sha256(`${normalized}|${consonantVector.join('')}|${abjadSum}`);
+
+      const bAndW = generateSigilSvg(consonantVector, abjadSum, hash, 600, true);
+      const blob = new Blob([bAndW], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `TALISMAN_CLEANROOM_${Date.now()}.svg`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showHudToast("B&W CLEANROOM TALISMAN EXPORTED");
+      setTimeout(openModal, 800);
+    }
+
+    // Export PNG (1200px High-Res with Watermark)
+    function downloadPng() {
+      const svgEl = document.getElementById('sigilSvg');
+      if (!svgEl) return;
+      const svgData = new XMLSerializer().serializeToString(svgEl);
+      const canvas = document.createElement('canvas');
+      canvas.width = 1200;
+      canvas.height = 1200;
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(svgBlob);
+
+      img.onload = function() {
+        ctx.fillStyle = '#07090e';
+        ctx.fillRect(0, 0, 1200, 1200);
+        ctx.drawImage(img, 0, 0, 1200, 1200);
+        URL.revokeObjectURL(url);
+        const pngUrl = canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = pngUrl;
+        a.download = `SIGIL_${Date.now()}_1200px.png`;
+        a.click();
+        showHudToast("1200PX PNG RENDERED & DOWNLOADED");
+        setTimeout(openModal, 800);
+      };
+      img.src = url;
+    }
+
+    // Copy ASCII Telemetry with HUD Toast
+    function copyTelemetry() {
+      const text = document.getElementById('asciiTelemetry').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showHudToast("TELEMETRY BUFFER COPIED [0x00_SUCCESS]");
+      });
+    }
+
+    // Share to X / Twitter
+    function shareToX() {
+      const raw = document.getElementById('intentInput').value.trim();
+      const abjad = document.getElementById('abjadTotal').textContent.replace('Sum: ', '');
+      const entropy = document.getElementById('entropyIndicator').textContent.replace('Entropy: ', '');
+      const tweetText = encodeURIComponent(`Compiled intent into non-semantic Ring 0 binary via the AOS Sigil Compiler.\n\n⚡ Abjad Checksum: ${abjad}\n⚡ ${entropy}\n⚡ Manual: APPLIED CYBER-OCCULTISM by Sir Leonard Daragan @SirLeonardDaragan\n\nhttps://sirleonarddaragan.github.io/applied-cyber-occultism/sigil.html`);
+      window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, '_blank');
+    }
+
+    // HUD Toast Notification helper
+    function showHudToast(msg) {
+      const toast = document.getElementById('hudToast');
+      toast.textContent = `⚡ ${msg}`;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2400);
+    }
+
+    // Init on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('intentInput').addEventListener('input', compileIntent);
+      compileIntent();
+    });
+  </script>
+</body>
+</html>
