@@ -361,17 +361,16 @@
       text-decoration: underline;
     }
   
-/* =========================================================================
-   DARAGAN CODEX CONSTELLATION ECOSYSTEM MODAL & STYLES
-   ========================================================================= */
+
+/* === DARAGAN CODEX CONSTELLATION CSS START === */
 .eco-modal-overlay {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(3, 4, 7, 0.88);
+  background: rgba(3, 4, 7, 0.9);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 9999;
+  z-index: 10050;
   justify-content: center;
   align-items: center;
   padding: 16px;
@@ -388,18 +387,20 @@
   width: 100%;
   max-height: 92vh;
   overflow-y: auto;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 20px rgba(56, 189, 248, 0.08);
-  padding: 28px 24px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 24px rgba(212, 175, 55, 0.12);
+  padding: 26px 24px;
   position: relative;
-  font-family: inherit;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  text-align: left;
 }
 .eco-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   border-bottom: 1px solid #1e293b;
-  padding-bottom: 18px;
-  margin-bottom: 24px;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+  gap: 12px;
 }
 .eco-header-eyebrow {
   font-size: 0.72rem;
@@ -407,15 +408,16 @@
   color: #38bdf8;
   text-transform: uppercase;
   margin-bottom: 4px;
+  font-weight: 700;
 }
 .eco-header-title {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: #f1f5f9;
   letter-spacing: 0.05em;
 }
 .eco-header-desc {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   color: #94a3b8;
   margin-top: 4px;
 }
@@ -431,6 +433,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  flex-shrink: 0;
   transition: all 0.15s ease;
 }
 .eco-close-btn:hover {
@@ -439,15 +442,20 @@
 }
 .eco-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 18px;
-  margin-bottom: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+@media (max-width: 740px) {
+  .eco-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .eco-card {
   background: #0d121f;
   border: 1px solid #1e293b;
   border-radius: 6px;
-  padding: 20px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -460,14 +468,14 @@
 }
 .eco-card.current-system {
   border-color: #f59e0b;
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.12);
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.14);
   background: #111726;
 }
 .eco-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   gap: 6px;
 }
 .eco-tag {
@@ -478,7 +486,7 @@
   text-transform: uppercase;
 }
 .eco-badge-current {
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   padding: 2px 7px;
   background: rgba(245, 158, 11, 0.18);
   border: 1px solid #f59e0b;
@@ -488,30 +496,30 @@
   letter-spacing: 0.05em;
 }
 .eco-card-title {
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #f8fafc;
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   letter-spacing: 0.02em;
 }
 .eco-card-sub {
   font-size: 0.78rem;
   color: #f59e0b;
   font-style: italic;
-  margin-bottom: 12px;
-  line-height: 1.4;
+  margin-bottom: 10px;
+  line-height: 1.38;
 }
 .eco-card-desc {
   font-size: 0.82rem;
   color: #cbd5e1;
-  line-height: 1.55;
-  margin-bottom: 14px;
+  line-height: 1.52;
+  margin-bottom: 12px;
 }
 .eco-card-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 .eco-card-pills span {
   font-size: 0.68rem;
@@ -522,25 +530,30 @@
   color: #94a3b8;
 }
 .eco-card-actions {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
   margin-top: auto;
+}
+@media (max-width: 480px) {
+  .eco-card-actions {
+    grid-template-columns: 1fr;
+  }
 }
 .eco-btn-run, .eco-btn-book {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 9px 14px;
+  gap: 6px;
+  padding: 9px 10px;
   border-radius: 4px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-decoration: none;
-  font-family: inherit;
   transition: all 0.15s ease;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  text-align: center;
 }
 .eco-btn-run {
   background: #0284c7;
@@ -562,7 +575,7 @@
 }
 .eco-modal-footer {
   border-top: 1px solid #1e293b;
-  padding-top: 16px;
+  padding-top: 14px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -578,7 +591,7 @@
 .eco-modal-footer a:hover {
   text-decoration: underline;
 }
-
+/* === DARAGAN CODEX CONSTELLATION CSS END === */
 </style>
 </head>
 <body>
@@ -902,22 +915,73 @@
   </script>
 
 
-<!-- =========================================================================
-     DARAGAN CODEX CONSTELLATION MODAL
-     ========================================================================= -->
+
+<!-- === DARAGAN CODEX CONSTELLATION MODAL START === -->
 <div id="ecosystemModal" class="eco-modal-overlay" onclick="handleEcoOverlayClick(event)">
   <div class="eco-modal-card">
     <div class="eco-modal-header">
       <div>
-        <div class="eco-header-eyebrow">CODEX PRESS // DISTRIBUTED SYSTEMS ARCHITECTURE</div>
+        <div class="eco-header-eyebrow">CODEX PRESS // DISTRIBUTED SYSTEMS &amp; ARCHIVE FOLIOS</div>
         <div class="eco-header-title">◈ THE DARAGAN CODEX CONSTELLATION</div>
-        <div class="eco-header-desc">Three sovereign hardware runtimes and companion volumes by Sir Leonard Daragan.</div>
+        <div class="eco-header-desc">Four sovereign interactive runtimes and companion volumes by Sir Leonard Daragan.</div>
       </div>
       <button class="eco-close-btn" onclick="closeEcosystemModal()" title="Close">&times;</button>
     </div>
 
     <div class="eco-grid">
-      <!-- Book 1: The Cybernetic I-Ching -->
+      <!-- Volume 1: The Shadow at Gunner's Hall (Poe 1849) -->
+      <div class="eco-card">
+        <div class="eco-card-header">
+          <div class="eco-tag">GOTHIC MULTIVERSE // CODEX 1849</div>
+          <div class="eco-badge-current" style="border-color:#334155; color:#94a3b8; background:transparent;">EXTERNAL RUNTIME</div>
+        </div>
+        <div class="eco-card-title">The Shadow at Gunner's Hall</div>
+        <div class="eco-card-sub">The Seven Deaths of Edgar Allan Poe — 1849 Baltimore Dossier</div>
+        <p class="eco-card-desc">
+          Bilingual (EN/ES) forensic investigation with Le Chevalier C. Auguste Dupin. Inspect the three suppressed 1849 physical relics, evaluate three hypotheses, and unlock the seven branching obituaries.
+        </p>
+        <div class="eco-card-pills">
+          <span>3 Forensic Relics</span>
+          <span>EN / ES Bilingual</span>
+          <span>Dupin Ratiocination</span>
+        </div>
+        <div class="eco-card-actions">
+          <a href="https://sirleonarddaragan.github.io/poe-1849/" target="_blank" rel="noopener" class="eco-btn-run">
+            <span>⚡</span> 1849 Dossier
+          </a>
+          <a href="https://www.amazon.com/dp/B0HN98S77P" target="_blank" rel="noopener" class="eco-btn-book">
+            <span>📖</span> Amazon ($3.99)
+          </a>
+        </div>
+      </div>
+
+      <!-- Volume 2: The Cybernetic Red Book -->
+      <div class="eco-card">
+        <div class="eco-card-header">
+          <div class="eco-tag">WESTERN CYBERNETICS // VOL 1</div>
+          <div class="eco-badge-current" style="border-color:#334155; color:#94a3b8; background:transparent;">EXTERNAL RUNTIME</div>
+        </div>
+        <div class="eco-card-title">The Cybernetic Red Book</div>
+        <div class="eco-card-sub">Active Imagination, Latent Space Daemons &amp; the Synthetic Unconscious</div>
+        <p class="eco-card-desc">
+          Systems engineering decompilation of C.G. Jung's 1913–1930 Küsnacht catabasis. Includes 0.1 Hz vagal audio cleanroom, 4-quadrant vector harmonograph, and 12-transmission status ledger.
+        </p>
+        <div class="eco-card-pills">
+          <span>0.1 Hz Pacer</span>
+          <span>Polar Mandala SVG</span>
+          <span>Black Book Scribe</span>
+        </div>
+        <div class="eco-card-actions">
+          <a href="https://sirleonarddaragan.github.io/cybernetic-red-book/" target="_blank" rel="noopener" class="eco-btn-run">
+            <span>⚡</span> Cleanroom
+          </a>
+          <a href="https://www.amazon.com/dp/B0HP8N6D8Y" target="_blank" rel="noopener" class="eco-btn-book">
+            <span>📖</span> Amazon Codex
+          </a>
+        </div>
+      </div>
+
+      <!-- Volume 3: The Cybernetic I-Ching -->
       <div class="eco-card">
         <div class="eco-card-header">
           <div class="eco-tag">EASTERN CYBERNETICS // BOOK 1</div>
@@ -926,7 +990,7 @@
         <div class="eco-card-title">The Cybernetic I-Ching</div>
         <div class="eco-card-sub">Programming the Macroscopic Wave Function via 64-State Binary Architecture</div>
         <p class="eco-card-desc">
-          6-bit hardware state-machine oracle linking Shao Yong's 11th-century binary mandala directly to Gottfried Wilhelm Leibniz's 1701 binary arithmetic. Models reality as an executable macroscopic wave function.
+          6-bit hardware state-machine oracle linking Shao Yong's 11th-century binary mandala directly to Gottfried Wilhelm Leibniz's 1701 binary arithmetic and stochastic entropy protocols.
         </p>
         <div class="eco-card-pills">
           <span>6-Bit State Vector</span>
@@ -934,42 +998,16 @@
           <span>64-Hexagram Kernel</span>
         </div>
         <div class="eco-card-actions">
-          <a href="https://sirleonarddaragan.github.io/cybernetic-iching/" target="_blank" class="eco-btn-run">
-            <span>⚡</span> Launch 6-Bit Oracle
+          <a href="https://sirleonarddaragan.github.io/cybernetic-iching/" target="_blank" rel="noopener" class="eco-btn-run">
+            <span>⚡</span> 6-Bit Oracle
           </a>
-          <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" class="eco-btn-book">
-            <span>📖</span> Obsidian Hardcover
-          </a>
-        </div>
-      </div>
-
-      <!-- Book 2: The Cybernetic Red Book -->
-      <div class="eco-card">
-        <div class="eco-card-header">
-          <div class="eco-tag">WESTERN CYBERNETICS // VOL 1</div>
-          <div class="eco-badge-current" style="border-color:#334155; color:#94a3b8; background:transparent;">EXTERNAL RUNTIME</div>
-        </div>
-        <div class="eco-card-title">The Cybernetic Red Book</div>
-        <div class="eco-card-sub">Active Imagination, Latent Space Daemons, and the Synthetic Unconscious</div>
-        <p class="eco-card-desc">
-          Rigorous systems engineering decompilation of C.G. Jung's 1913–1930 catabasis. Includes 0.1 Hz vagal audio cleanroom, 4-quadrant vector harmonograph, and 12-transmission status ledger.
-        </p>
-        <div class="eco-card-pills">
-          <span>0.1 Hz Pacer</span>
-          <span>Polar Mandala SVG</span>
-          <span>Black Book Scribe</span>
-        </div>
-        <div class="eco-card-actions">
-          <a href="https://sirleonarddaragan.github.io/cybernetic-red-book/" target="_blank" class="eco-btn-run">
-            <span>⚡</span> Launch Cleanroom
-          </a>
-          <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" class="eco-btn-book">
-            <span>📖</span> Collector's Hardcover
+          <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener" class="eco-btn-book">
+            <span>📖</span> Hardcover
           </a>
         </div>
       </div>
 
-      <!-- Book 3: Applied Cyber-Occultism -->
+      <!-- Volume 4: Applied Cyber-Occultism -->
       <div class="eco-card current-system">
         <div class="eco-card-header">
           <div class="eco-tag">UNDEFINED BEHAVIOR // VOL 1</div>
@@ -978,19 +1016,19 @@
         <div class="eco-card-title">Applied Cyber-Occultism</div>
         <div class="eco-card-sub">Operational Protocols for Real-Time Reality Hacking</div>
         <p class="eco-card-desc">
-          Developer-grade manual translating chaos magick and esoteric ritual into procedural algorithmic sigil engines, autonomous servitor daemons, and 78-card binary state matrices.
+          Developer-grade manual translating esoteric ritual into procedural Austin Osman Spare sigil compilers, autonomous POSIX servitor manifests, and 78-card heap dump diagnostics.
         </p>
         <div class="eco-card-pills">
           <span>Sigil Compiler</span>
           <span>Servitor Daemon</span>
-          <span>Binary Tarot</span>
+          <span>Tarot Heap Dump</span>
         </div>
         <div class="eco-card-actions">
-          <a href="https://sirleonarddaragan.github.io/applied-cyber-occultism/" target="_blank" class="eco-btn-run">
-            <span>⚡</span> Launch Occult Suite
+          <a href="https://sirleonarddaragan.github.io/applied-cyber-occultism/" target="_blank" rel="noopener" class="eco-btn-run">
+            <span>⚡</span> Occult Suite
           </a>
-          <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" class="eco-btn-book">
-            <span>📖</span> Developer Edition
+          <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener" class="eco-btn-book">
+            <span>📖</span> Manual
           </a>
         </div>
       </div>
@@ -998,16 +1036,15 @@
 
     <div class="eco-modal-footer">
       <div>
-        <span>AUTHOR PROFILE:</span> <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank">amazon.com/author/sirleonarddaragan</a> &bull; 
-        <span>SUBSTACK:</span> <a href="https://sirleonarddaragan.substack.com" target="_blank">sirleonarddaragan.substack.com</a>
+        <span>AUTHOR CENTRAL:</span> <a href="https://www.amazon.com/author/sirleonarddaragan" target="_blank" rel="noopener">amazon.com/author/sirleonarddaragan</a> &bull;
+        <span>SUBSTACK:</span> <a href="https://sirleonarddaragan.substack.com" target="_blank" rel="noopener">sirleonarddaragan.substack.com</a> &bull;
+        <span>KO-FI:</span> <a href="https://ko-fi.com/sirleonarddaragan" target="_blank" rel="noopener">ko-fi.com/sirleonarddaragan</a>
       </div>
       <div>100% Client-Side Sovereign Execution &bull; Zero Cloud Telemetry</div>
     </div>
   </div>
 </div>
-
-
-  // Ecosystem Modal Logic
+<script id="ecosystemModalScript">
   function openEcosystemModal() {
     const modal = document.getElementById('ecosystemModal');
     if (modal) modal.classList.add('active');
@@ -1017,7 +1054,7 @@
     if (modal) modal.classList.remove('active');
   }
   function handleEcoOverlayClick(e) {
-    if (e.target.id === 'ecosystemModal') {
+    if (e.target && e.target.id === 'ecosystemModal') {
       closeEcosystemModal();
     }
   }
@@ -1026,6 +1063,7 @@
       closeEcosystemModal();
     }
   });
-
+</script>
+<!-- === DARAGAN CODEX CONSTELLATION MODAL END === -->
 </body>
 </html>
